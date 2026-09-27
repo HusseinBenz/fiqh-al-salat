@@ -274,3 +274,77 @@ th { background: var(--surface-2); color: var(--text); font-weight: 700; }
   .year-select { width: 100%; }
   .year-select select { flex: 1; min-width: 0; }
 }
+
+/* ==================================================================
+   Schoolbook — abstract and colourless, for the whole page.
+   Everything is drawn in ink (day) or chalk (night), like a clear
+   textbook figure: categories differ by tone and texture, lines by
+   weight and dash. This block comes last and overrides the colours above.
+   ================================================================== */
+.sk-project-fiqh { --accent: var(--text); --accent-soft: var(--sunk); --on-accent: var(--bg); }
+:root, [data-theme="light"] { --sky-n: #2E3136; --sky-t: #A3A8AE; --sky-d: #EEF0F2; }
+[data-theme="dark"] { --sky-n: #05080D; --sky-t: #3C4450; --sky-d: #8C95A1; }
+.sk-project-fiqh .sk-pattern { filter: grayscale(1); }
+.sk-project-fiqh .sk-constellation, .sk-project-fiqh .sk-tile { filter: grayscale(1); }
+.sk-project-fiqh .sk-btn--accent { box-shadow: none; }
+.hero__star, .hero__star .inner { color: var(--text); }
+.hero__star { opacity: .75; }
+.step .dh, .fs-footer-dua .sk-ar { color: var(--text-2); }
+.sec-head .kicker { color: var(--text-3); }
+
+/* Timing categories: tone and texture instead of colour */
+.t-fadl { background: var(--text); }
+.t-ikht { background: color-mix(in srgb, var(--text) 55%, transparent); }
+.t-jawaz { background: color-mix(in srgb, var(--text) 20%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text) 35%, transparent); }
+.t-karaha { background: repeating-linear-gradient(135deg, var(--text) 0 1.6px, transparent 1.6px 6px); box-shadow: inset 0 0 0 1.5px var(--text); }
+.t-darura { background: radial-gradient(circle, var(--text) 1.3px, transparent 1.7px) 0 0 / 6px 6px; box-shadow: inset 0 0 0 1.5px var(--text); }
+.t-forbid { background: repeating-linear-gradient(90deg, var(--text) 0 1.2px, transparent 1.2px 5px); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text) 45%, transparent); }
+.sw { width: 22px; height: 12px; border-radius: 3px; }
+.seg.t-fadl, .seg.t-ikht, .seg.t-jawaz { box-shadow: none; }
+.seg.live { outline: 2px solid var(--text); outline-offset: 2px; }
+.st .dot { width: 18px; height: 10px; border-radius: 3px; }
+#tip .sw { display: inline-block; width: 16px; height: 9px; vertical-align: middle; }
+.g-track { background: color-mix(in srgb, var(--text) 5%, transparent); }
+
+/* Sky strip in greys */
+.sun { background: #FFFFFF; box-shadow: 0 0 0 2px var(--sky-n); }
+.moon { box-shadow: inset -5px 2px 0 0 #F2F2F2; }
+.playhead { box-shadow: none; }
+
+/* The schoolbook figures */
+.school-fig { margin: 0; color: var(--text); }
+.school-fig svg { width: 100%; height: auto; display: block; overflow: visible; }
+.sf-ink { stroke: currentColor; fill: none; }
+.sf-fill { fill: currentColor; }
+.sf-paper { fill: var(--surface); stroke: currentColor; }
+.sf-t { fill: currentColor; font: 600 13px var(--font-ui); }
+.sf-muted { fill: var(--text-3); font-weight: 500; }
+.sf-small { font-size: 12px; font-weight: 600; }
+[dir="rtl"] .sf-t, [dir="rtl"] .school-fig text { font-family: var(--font-ar-ui); }
+.school-fig text { fill: currentColor; font-family: var(--font-ui); }
+.fig-lede { margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--text-2); }
+[dir="rtl"] .fig-lede { font-family: var(--font-ar-text); line-height: 1.95; }
+.school-readout { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 18px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.school-time { font-family: var(--font-display); font-size: 42px; line-height: 1; font-variant-numeric: tabular-nums; }
+.school-ratio { font-size: 16px; font-weight: 600; }
+.school-phase { margin-inline-start: auto; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line-2); font-size: 13.5px; font-weight: 600; }
+
+/* Yearly chart in ink */
+.year-chart { color: var(--text); }
+.yc-line { stroke: currentColor; }
+.yc-dot { fill: var(--surface); stroke: currentColor; stroke-width: 2; }
+.yc-end { fill: currentColor; font: 700 12.5px var(--font-ui); }
+.yc-end--faint { fill: var(--text-3); font-weight: 500; }
+[dir="rtl"] .yc-end { font-family: var(--font-ar-ui); }
+.yc-today { stroke: var(--text-3); }
+.yc-today-lab { fill: var(--text-3); }
+.yc-sample { flex: none; color: var(--text); }
+.year-tip span { gap: 8px; }
+
+@media (max-width: 760px) {
+  .school-time { font-size: 34px; }
+  .school-phase { margin-inline-start: 0; }
+}
+
+/* chart labels are placed with LTR anchor maths; single words render fine either way */
+#yearSvg { direction: ltr; }

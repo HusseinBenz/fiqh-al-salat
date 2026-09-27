@@ -59,14 +59,21 @@ var YearChart = (function () {
     ['ru', 'Russia', 'روسيا', 'Moscow', 'موسكو', 55.7558, 37.6173, 'Europe/Moscow', 'russia']
   ].map(function (r) { return { id: r[0], en: r[1], ar: r[2], cityEn: r[3], cityAr: r[4], lat: r[5], lng: r[6], tz: r[7], method: r[8] }; });
 
+  // Colourless on purpose: every line is ink; they differ by weight and dash
   var PRAYERS = [
-    { key: 'fajr', en: 'Fajr', ar: 'الفجر', color: 'var(--jawaz)' },
-    { key: 'sunrise', en: 'Sunrise', ar: 'الشروق', color: 'var(--text-3)', dashed: true },
-    { key: 'dhuhr', en: 'Dhuhr', ar: 'الظهر', color: 'var(--fadl)' },
-    { key: 'asr', en: 'ʿAṣr', ar: 'العصر', color: 'var(--karaha)' },
-    { key: 'maghrib', en: 'Maghrib', ar: 'المغرب', color: 'var(--darura)' },
-    { key: 'isha', en: 'ʿIshāʾ', ar: 'العشاء', color: 'var(--forbid)' }
+    { key: 'fajr', en: 'Fajr', ar: 'الفجر', width: 2.2, dash: '' },
+    { key: 'sunrise', en: 'Sunrise', ar: 'الشروق', width: 1.2, dash: '1 5', faint: true },
+    { key: 'dhuhr', en: 'Dhuhr', ar: 'الظهر', width: 3.4, dash: '' },
+    { key: 'asr', en: 'ʿAṣr', ar: 'العصر', width: 2.2, dash: '9 5' },
+    { key: 'maghrib', en: 'Maghrib', ar: 'المغرب', width: 2.2, dash: '14 4 2 4' },
+    { key: 'isha', en: 'ʿIshāʾ', ar: 'العشاء', width: 2.6, dash: '1.5 5' }
   ];
+  function lineStyle(p) {
+    return 'stroke-width:' + p.width + ';' + (p.dash ? 'stroke-dasharray:' + p.dash + ';' : '') + (p.faint ? 'opacity:.55;' : '');
+  }
+  function sample(p) {
+    return '<svg class="yc-sample" width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" stroke="currentColor" stroke-linecap="round" style="' + lineStyle(p) + '"/></svg>';
+  }
 
   /* ---------- astronomy (PrayTimes.org formulas) ---------- */
   var rad = function (d) { return d * Math.PI / 180; };
@@ -154,8 +161,7 @@ var YearChart = (function () {
 
   /* ---------- drawing ---------- */
   var state = { place: null, lang: 'en', mz: 'hanafi', hidden: {}, custom: null };
-  var AR_DIGITS = '٠١٢٣٤٥٦٧٨٩';
-  function num(s) { return state.lang === 'ar' ? String(s).replace(/\d/g, function (d) { return AR_DIGITS[d]; }) : String(s); }
+  function num(s) { return window.Sakina ? Sakina.num(s) : String(s); }
   function hhmm(h) {
     if (h == null || isNaN(h)) return '—';
     var mins = Math.round(h * 60) % 1440;
@@ -164,7 +170,7 @@ var YearChart = (function () {
   function T(en, ar) { return state.lang === 'ar' ? ar : en; }
   var $ = function (id) { return document.getElementById(id); };
 
-  var W = 1000, H = 520, M = { top: 20, right: 70, bottom: 44, left: 70 };
+  var W = 1000, H = 520, M = { top: 20, right: 84, bottom: 44, left: 84 };
   var data = [];
 
   function xOf(i, n) {
@@ -185,7 +191,7 @@ var YearChart = (function () {
     for (var h = 0; h <= 24; h += 2) {
       var y = yOf(h);
       g += '<line class="yc-grid' + (h % 6 ? '' : ' yc-grid--major') + '" x1="' + M.left + '" x2="' + (W - M.right) + '" y1="' + y + '" y2="' + y + '"/>';
-      g += '<text class="yc-ylab" x="' + (rtl ? W - M.right + 10 : M.left - 10) + '" y="' + (y + 4) + '" text-anchor="' + (rtl ? 'start' : 'end') + '">' + hhmm(h === 24 ? 23.9999 : h).replace(/23:59|٢٣:٥٩/, num('24:00')) + '</text>';
+      g += '<text class="yc-ylab" x="' + (rtl ? W - M.right + 10 : M.left - 10) + '" y="' + (y + 4) + '" text-anchor="' + (rtl ? 'start' : 'end') + '">' + (h === 24 ? num('24:00') : hhmm(h)) + '</text>';
     }
     // months
     var monthFmt = new Intl.DateTimeFormat(rtl ? 'ar' : 'en', { month: 'short', timeZone: 'UTC' });
@@ -207,7 +213,15 @@ var YearChart = (function () {
         dPath += (prev == null || Math.abs(v - prev) > 6 ? 'M' : 'L') + x + ' ' + y;
         prev = v;
       });
-      g += '<path class="yc-line' + (p.dashed ? ' yc-line--dash' : '') + '" style="stroke:' + p.color + '" d="' + dPath + '"/>';
+      g += '<path class="yc-line" style="' + lineStyle(p) + '" d="' + dPath + '"/>';
+    });
+    // label each line where it ends, like a textbook figure
+    var ends = PRAYERS.filter(function (p) { return !state.hidden[p.key] && !isNaN(data[n - 1][p.key]); })
+      .map(function (p) { return { p: p, y: yOf(data[n - 1][p.key]) + 4 }; })
+      .sort(function (a, b) { return a.y - b.y; });
+    for (var e = 1; e < ends.length; e++) if (ends[e].y - ends[e - 1].y < 15) ends[e].y = ends[e - 1].y + 15;
+    ends.forEach(function (end) {
+      g += '<text class="yc-end' + (end.p.faint ? ' yc-end--faint' : '') + '" x="' + (rtl ? M.left - 8 : W - M.right + 8) + '" y="' + end.y + '" text-anchor="' + (rtl ? 'end' : 'start') + '">' + T(end.p.en, end.p.ar) + '</text>';
     });
     // today
     var now = new Date(), todayIdx = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(year, 0, 1)) / 86400000);
@@ -243,7 +257,7 @@ var YearChart = (function () {
       b.type = 'button';
       b.className = 'yc-key';
       b.setAttribute('aria-pressed', state.hidden[p.key] ? 'false' : 'true');
-      b.innerHTML = '<i style="background:' + p.color + (p.dashed ? ';opacity:.6' : '') + '"></i>' + T(p.en, p.ar);
+      b.innerHTML = sample(p) + T(p.en, p.ar);
       b.addEventListener('click', function () { state.hidden[p.key] = !state.hidden[p.key]; renderLegend(); draw(); });
       box.appendChild(b);
     });
@@ -277,9 +291,9 @@ var YearChart = (function () {
       if (state.hidden[p.key]) return;
       var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       c.setAttribute('cx', xx); c.setAttribute('cy', yOf(row[p.key])); c.setAttribute('r', 4.5);
-      c.setAttribute('style', 'fill:' + p.color);
+      c.setAttribute('class', 'yc-dot');
       hv.appendChild(c);
-      html += '<span><i style="background:' + p.color + '"></i>' + T(p.en, p.ar) + '<em>' + hhmm(row[p.key]) + '</em></span>';
+      html += '<span>' + sample(p) + T(p.en, p.ar) + '<em>' + hhmm(row[p.key]) + '</em></span>';
     });
     var tip = $('yearTip');
     tip.innerHTML = html;

@@ -11,8 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/sakina.css?v=sk2">
-<link rel="stylesheet" href="css/style.css?v=sk2">
+<link rel="stylesheet" href="css/sakina.css?v=sk3">
+<link rel="stylesheet" href="css/style.css?v=sk3">
 </head>
 <body class="sk-project-fiqh">
 <a class="sk-skip" href="#times"><span class="en">Skip to the timeline</span><span class="ar">تخطَّ إلى المخطط الزمني</span></a>
@@ -135,10 +135,13 @@
   <div class="grid figures" style="margin-top:22px">
     <div class="card demo figure-card reveal">
       <div class="pcard"><h3><span class="en">The Shadow Clock</span><span class="ar">ساعة الظل</span></h3></div>
-      <figure class="sci-fig">
-        <svg viewBox="0 0 680 340" id="shadowSvg" role="img" aria-labelledby="shCap"></svg>
-        <figcaption id="shCap"><b><span class="en">Fig. 1.</span><span class="ar">شكل ١.</span></b> <span class="en">Side view of a vertical stick (gnomon) of height <i>h</i> and its shadow <i>s</i>. <i>s</i><sub>0</sub> is the shortest, noon shadow (fayʾ al-zawāl). ʿAṣr begins when <i>s</i> = <i>h</i> + <i>s</i><sub>0</sub> (majority) or <i>s</i> = 2<i>h</i> + <i>s</i><sub>0</sub> (Abū Ḥanīfa).</span><span class="ar">منظر جانبي لعصا قائمة (شاخص) طولها <i>h</i> وظلها <i>s</i>. و<i>s</i><sub>0</sub> أقصر الظل عند الزوال (فيء الزوال). يدخل العصر إذا صار <i>s</i> = <i>h</i> + <i>s</i><sub>0</sub> عند الجمهور، أو <i>s</i> = 2<i>h</i> + <i>s</i><sub>0</sub> عند أبي حنيفة.</span></figcaption>
-      </figure>
+      <p class="fig-lede"><span class="en">Plant a stick in the ground and watch its shadow. It shrinks until noon, then grows. ʿAṣr begins when the shadow is as long as the stick plus its noon shadow (most scholars) — or twice as long plus it (Abū Ḥanīfa).</span><span class="ar">اغرس عصا في الأرض وراقب ظلها: يقصر حتى الزوال ثم يزيد. ويدخل العصر إذا صار الظل مثل طول العصا مع ظلها عند الزوال (عند الجمهور)، أو مثليها معه (عند أبي حنيفة).</span></p>
+      <figure class="school-fig"><svg viewBox="0 0 680 300" id="shadowSvg" role="img" aria-label="A stick, the sun and the stick's shadow"></svg></figure>
+      <div class="school-readout" aria-live="polite">
+        <output class="school-time" id="shTime" for="shRange">13:00</output>
+        <span class="school-ratio" id="shS"></span>
+        <span class="school-phase" id="shP"></span>
+      </div>
       <div class="sci-controls">
         <button class="sk-icon-btn" id="shPlay" type="button" aria-pressed="false" aria-label="Play the day">
           <svg class="i-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg>
@@ -146,32 +149,34 @@
         </button>
         <label class="sci-slider"><span class="sk-visually-hidden"><span class="en">Time of day</span><span class="ar">وقت النهار</span></span>
           <input type="range" id="shRange" min="365" max="1075" step="1" value="780"></label>
-        <output class="sci-time" id="shTime" for="shRange">13:00</output>
       </div>
-      <table class="sci-table">
-        <thead><tr><th><span class="en">Time</span><span class="ar">الوقت</span></th><th><span class="en">Sun altitude</span><span class="ar">ارتفاع الشمس</span> <i>α</i></th><th><span class="en">Shadow</span><span class="ar">الظل</span> <i>s</i>/<i>h</i></th><th><span class="en">Phase</span><span class="ar">المرحلة</span></th></tr></thead>
-        <tbody><tr><td id="shT"></td><td id="shA"></td><td id="shS"></td><td id="shP"></td></tr></tbody>
-      </table>
-      <p class="cap"><span class="en">Model: a 12-hour day — sunrise 06:00, solar noon 12:00, sunset 18:00 — as on an equinox at Makkah (21.4° N), where <i>s</i><sub>0</sub> ≈ 0.39 <i>h</i>. Shadow lengths are drawn to scale along the ground.</span><span class="ar">النموذج: نهار طوله ١٢ ساعة — الشروق ٠٦:٠٠، والزوال ١٢:٠٠، والغروب ١٨:٠٠ — كما في يوم الاعتدال بمكة (٢١٫٤° شمالًا)، حيث <i>s</i><sub>0</sub> ≈ ٠٫٣٩ <i>h</i>. أطوال الظل مرسومة بمقياس على الأرض.</span></p>
+      <p class="cap"><span class="en">Simplified: a 12-hour day — sunrise 06:00, noon 12:00, sunset 18:00 — as on an equinox day in Makkah. Real days are longer or shorter through the year.</span><span class="ar">نموذج مبسّط: نهار طوله ١٢ ساعة — الشروق ٠٦:٠٠، والزوال ١٢:٠٠، والغروب ١٨:٠٠ — كيوم الاعتدال في مكة. أما الأيام الحقيقية فتطول وتقصر على مدار العام.</span></p>
     </div>
     <div class="card demo reveal">
-      <div class="pcard"><h3><span class="en">Dawn & Twilight</span><span class="ar">الفجر والشفق</span></h3></div>
-      <svg viewBox="0 0 420 170" aria-hidden="true">
-        <defs>
-          <linearGradient id="fd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a0f24"/><stop offset=".75" stop-color="#1b2350"/><stop offset="1" stop-color="#6c7bb8"/></linearGradient>
-          <linearGradient id="tw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a0f24"/><stop offset=".55" stop-color="#2a2350"/><stop offset=".8" stop-color="#e6e0f0" stop-opacity=".55"/><stop offset=".92" stop-color="#b83b4b"/><stop offset="1" stop-color="#f08a4b"/></linearGradient>
-        </defs>
-        <rect x="0" y="0" width="205" height="150" rx="10" fill="url(#fd)"/>
-        <path d="M95 150 L103 40 L111 150Z" fill="#cfd6ff" opacity=".35"><animate attributeName="opacity" values=".1;.45;.1" dur="4s" repeatCount="indefinite"/></path>
-        <rect x="0" y="130" width="205" height="20" fill="#dfe6ff" opacity=".5"><animate attributeName="opacity" values=".15;.7;.15" dur="4s" repeatCount="indefinite" begin="2s"/></rect>
-        <text x="103" y="30" fill="#cfd6ff" font-size="11" text-anchor="middle" id="fdLabel1">False dawn (vertical)</text>
-        <text x="103" y="124" fill="#fff" font-size="11" text-anchor="middle" id="fdLabel2">True dawn (horizontal)</text>
-        <rect x="215" y="0" width="205" height="150" rx="10" fill="url(#tw)"/>
-        <text x="317" y="112" fill="#fff" font-size="11" text-anchor="middle" id="twLabel1">White twilight</text>
-        <text x="317" y="142" fill="#fff" font-size="11" text-anchor="middle" id="twLabel2">Red twilight</text>
-        <line x1="0" y1="150" x2="420" y2="150" stroke="#243056"/>
-      </svg>
-      <div class="cap"><span class="en">Fajr is the <b>true dawn</b> (al-fajr al-ṣādiq): light spreading horizontally along the horizon — not the vertical “tail of the wolf” that precedes it. After sunset the <b>red</b> glow fades first, then the <b>white</b>. Isha enters when the red is gone (majority) or the white (Abū Ḥanīfa).</span><span class="ar">الفجر هو <b>الفجر الصادق</b>: بياض منتشر معترض في الأفق، لا الفجر الكاذب المستطيل كذنب السِّرحان. وبعد الغروب يغيب <b>الشفق الأحمر</b> أولًا ثم <b>الأبيض</b>؛ فيدخل العشاء بغياب الأحمر عند الجمهور، وبغياب الأبيض عند أبي حنيفة.</span></div>
+      <div class="pcard"><h3><span class="en">Dawn &amp; Twilight</span><span class="ar">الفجر والشفق</span></h3></div>
+      <figure class="school-fig">
+        <svg viewBox="0 0 640 230" aria-hidden="true">
+          <defs>
+            <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(90)"><line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1.4"/></pattern>
+          </defs>
+          <g fill="currentColor" stroke="currentColor">
+            <!-- before sunrise -->
+            <path d="M152 186 L160 58 L168 186 Z" fill="url(#hatch)" stroke-width="1" stroke-opacity=".5"/>
+            <rect x="20" y="156" width="280" height="30" rx="4" fill-opacity=".16" stroke="none"/>
+            <line x1="14" y1="186" x2="306" y2="186" stroke-width="2"/>
+            <text id="fdLabel1" x="160" y="44" text-anchor="middle" stroke="none" font-size="13">False dawn (vertical)</text>
+            <text id="fdLabel2" x="160" y="210" text-anchor="middle" stroke="none" font-size="13">True dawn (horizontal)</text>
+            <!-- after sunset -->
+            <rect x="340" y="124" width="280" height="30" rx="4" fill-opacity=".1" stroke="none"/>
+            <rect x="340" y="156" width="280" height="30" rx="4" fill-opacity=".32" stroke="none"/>
+            <path d="M458 186 A22 22 0 0 1 502 186" fill="none" stroke-width="2"/>
+            <line x1="334" y1="186" x2="626" y2="186" stroke-width="2"/>
+            <text id="twLabel1" x="480" y="112" text-anchor="middle" stroke="none" font-size="13">White twilight</text>
+            <text id="twLabel2" x="480" y="210" text-anchor="middle" stroke="none" font-size="13">Red twilight</text>
+          </g>
+        </svg>
+      </figure>
+      <div class="cap"><span class="en">Fajr is the <b>true dawn</b> (al-fajr al-ṣādiq): light spreading along the horizon — not the thin vertical “tail of the wolf” that comes before it. After sunset the <b>red</b> glow fades first, then the <b>white</b>. ʿIshāʾ enters when the red is gone (most scholars) or the white (Abū Ḥanīfa).</span><span class="ar">الفجر هو <b>الفجر الصادق</b>: ضوء منتشر معترض في الأفق، لا الضوء المستطيل الدقيق «كذنب السِّرحان» الذي يسبقه. وبعد الغروب يغيب <b>الشفق الأحمر</b> أولًا ثم <b>الأبيض</b>؛ فيدخل العشاء بغياب الأحمر عند الجمهور، وبغياب الأبيض عند أبي حنيفة.</span></div>
     </div>
   </div>
 </div></section>
@@ -311,8 +316,8 @@
 
 <div id="tip"></div>
 
-<script src="js/sakina.js?v=sk2"></script>
-<script src="js/year.js?v=sk2"></script>
+<script src="js/sakina.js?v=sk3"></script>
+<script src="js/year.js?v=sk3"></script>
 <script>
 /* ---------- state ---------- */
 let lang='en', mz='hanafi';
@@ -451,7 +456,7 @@ function renderAxis(){
     e.textContent=L(lab);ov.appendChild(e);
   });
   // sky gradient
-  const st=[[210,'#0a0f24'],[270,'#1b2350'],[335,'#5b4a7a'],[360,'#f59e7a'],[410,'#79bfe9'],[1030,'#79bfe9'],[1070,'#f5b56a'],[1090,'#e0674a'],[1130,'#8a3050'],[1165,'#4a2550'],[1180,'#241d48'],[1260,'#0a0f24'],[1710,'#0a0f24']];
+  const st=[[210,'var(--sky-n)'],[270,'var(--sky-n)'],[340,'var(--sky-t)'],[400,'var(--sky-d)'],[1050,'var(--sky-d)'],[1110,'var(--sky-t)'],[1180,'var(--sky-n)'],[1710,'var(--sky-n)']];
   $('sky').style.background=`linear-gradient(${lang==='ar'?'270deg':'90deg'},${st.map(([m,c])=>c+' '+pct(m).toFixed(2)+'%').join(',')})`;
 }
 function renderRows(){
@@ -484,7 +489,7 @@ function setMz(m){mz=m;try{localStorage.setItem('fs-mz',m)}catch(e){}
 const tip=$('tip');
 function showTip(ev,s){
   const a=+s.dataset.a,b=+s.dataset.b,ty=TYPES[s.dataset.ty];
-  tip.innerHTML=`<b>${L(ROWS[s.dataset.r])}</b> · <span style="color:${ty.c}">${L(ty)}</span>${s._note?`<div class="tip-note">${L(s._note)}</div>`:''}`;
+  tip.innerHTML=`<b>${L(ROWS[s.dataset.r])}</b> · <span><i class="sw t-${s.dataset.ty}"></i> ${L(ty)}</span>${s._note?`<div class="tip-note">${L(s._note)}</div>`:''}`;
   tip.style.opacity=1;
   const x=lang==='ar'?Math.max(10,ev.clientX-14-tip.offsetWidth):Math.min(ev.clientX+14,innerWidth-330),y=Math.min(ev.clientY+14,innerHeight-tip.offsetHeight-10);
   tip.style.left=x+'px';tip.style.top=y+'px';
@@ -514,7 +519,7 @@ function update(m){
   hilite();
   // status
   const d=DATA[mz];let out=[];
-  for(const r in ROWS){(d[r]||[]).forEach(([a,b,ty])=>{if(m>=a&&m<b)out.push(`<div class="st"><i class="dot" style="background:${TYPES[ty].c}"></i><div><b>${L(ROWS[r])}</b> — ${L(TYPES[ty])}</div></div>`)})}
+  for(const r in ROWS){(d[r]||[]).forEach(([a,b,ty])=>{if(m>=a&&m<b)out.push(`<div class="st"><i class="dot sw t-${ty}"></i><div><b>${L(ROWS[r])}</b> — ${L(TYPES[ty])}</div></div>`)})}
   const key=out.join('');
   if($('status')._k!==key){$('status')._k=key;$('status').innerHTML=key||`<div class="st none">${lang==='ar'?'لا تدخل صلاة مفروضة في هذا الوقت (بين الشروق والزوال) — وقت الضحى':'No obligatory prayer is due now (between sunrise and zawāl) — the time of Ḍuḥā'}</div>`}
 }
@@ -524,80 +529,68 @@ function phaseAt(m){
   if(!cur||m>=T.fajr2)return lang==='ar'?'قبل الفجر':'Before dawn';
   return L(cur);
 }
-/* ---------- Fig. 1: shadow clock (scientific figure) ---------- */
-const SH={lat:21.4225,h:62,scale:62,cx:340,gy:226,R:176};
-const s0=Math.tan(SH.lat*Math.PI/180);
-function sunAlt(m){ // equinox: sin α = cos φ · cos H
+/* ---------- The shadow clock: a schoolbook drawing, ink only ---------- */
+const SH={lat:21.4225,stick:64,scale:64,cx:340,gy:214,R:170};
+const s0=Math.tan(SH.lat*Math.PI/180);                 // noon shadow, in stick lengths
+function sunAlt(m){ // equinox day: sin(altitude) = cos(latitude) · cos(hour angle)
   const Hh=(m-720)/4*Math.PI/180;
   return Math.asin(Math.cos(SH.lat*Math.PI/180)*Math.cos(Hh));
 }
-function timeForShadow(ratio){ // afternoon time when s/h reaches ratio
+function timeForShadow(ratio){ // afternoon time at which shadow / stick = ratio
   const a=Math.atan(1/ratio),c=Math.sin(a)/Math.cos(SH.lat*Math.PI/180);
   return 720+Math.acos(Math.min(1,c))*180/Math.PI*4;
 }
 const ASR1=timeForShadow(1+s0),ASR2=timeForShadow(2+s0);
-const digits=v=>lang==='ar'?String(v).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]).replace('.','٫'):String(v);
+const digits=v=>window.Sakina?Sakina.num(v):String(v);
 const clock=m=>digits(fmt(m));
 let sm=780,shPlaying=false,shLast=0;
 function drawShadow(m){
-  const rtl=lang==='ar',X=dx=>SH.cx+(rtl?-dx:dx);  // dx > 0 is west
-  const alpha=sunAlt(m),ratio=1/Math.tan(alpha),morning=m<720;
-  const dir=morning?1:-1;                          // shadow points away from the sun
-  const len=Math.min(ratio*SH.scale,300);
-  const tip=X(dir*len),sunX=X(-dir*SH.R*Math.cos(alpha)),sunY=SH.gy-SH.R*Math.sin(alpha);
-  const F='font-family="Georgia, \'Times New Roman\', serif"';
-  // Formulas always read left to right; Arabic words keep their own direction
-  const lab=(x,y,txt,anchor='middle',extra='')=>{const ar=/[ء-ي]/.test(txt.replace(/<[^>]+>/g,''));return `<text x="${x}" y="${y}" text-anchor="${anchor}" direction="${ar?'rtl':'ltr'}" unicode-bidi="embed" ${ar?'font-family="Noto Naskh Arabic, serif"':F} font-size="13" fill="#111" ${extra}>${txt}</text>`};
+  const rtl=lang==='ar',X=dx=>SH.cx+(rtl?-dx:dx);      // dx > 0 points west
   const W=(en,ar)=>rtl?ar:en;
-  let g=`<rect width="680" height="340" fill="#fff"/>`;
-  // sky dome and ground with scale ticks in units of h
-  g+=`<path d="M${SH.cx-SH.R} ${SH.gy} A${SH.R} ${SH.R} 0 0 1 ${SH.cx+SH.R} ${SH.gy}" fill="none" stroke="#9a9a9a" stroke-width="1" stroke-dasharray="3 4"/>`;
-  g+=`<line x1="20" y1="${SH.gy}" x2="660" y2="${SH.gy}" stroke="#111" stroke-width="1.4"/>`;
-  for(let k=-4;k<=4;k++){const x=X(k*SH.scale);if(x<24||x>656)continue;g+=`<line x1="${x}" y1="${SH.gy}" x2="${x}" y2="${SH.gy+6}" stroke="#111" stroke-width="1"/>`;if(k)g+=lab(x,SH.gy+22,digits(Math.abs(k))+'<tspan font-style="italic">h</tspan>')}
-  g+=lab(rtl?650:30,SH.gy-10,W('E','شرق'),rtl?'end':'start','font-weight="bold"');
-  g+=lab(rtl?30:650,SH.gy-10,W('W','غرب'),rtl?'start':'end','font-weight="bold"');
-  // ʿAṣr thresholds on the afternoon (east) side
-  [[1+s0,W('ʿAṣr — majority','العصر — الجمهور'),ASR1],[2+s0,W('ʿAṣr — Abū Ḥanīfa','العصر — أبو حنيفة'),ASR2]].forEach(([r,t,tm],i)=>{
-    const x=X(-r*SH.scale),y=SH.gy+78+i*20;
-    g+=`<line x1="${x}" y1="${SH.gy-70}" x2="${x}" y2="${y-12}" stroke="#111" stroke-width=".8" stroke-dasharray="2 3"/>`;
-    g+=lab(x,y,`${t} (${clock(tm)})`,'middle','font-size="11.5"');
+  const alpha=sunAlt(m),ratio=1/Math.tan(alpha),morning=m<720,dir=morning?1:-1;
+  const len=Math.min(ratio*SH.scale,300),tip=X(dir*len);
+  const sunX=X(-dir*SH.R*Math.cos(alpha)),sunY=SH.gy-SH.R*Math.sin(alpha);
+  const txt=(x,y,t,anchor='middle',cls='')=>`<text x="${x}" y="${y}" text-anchor="${anchor}" class="sf-t ${cls}">${t}</text>`;
+  let g='';
+  // the ground, drawn like a textbook: a line with little hatches underneath
+  g+=`<line x1="24" y1="${SH.gy}" x2="656" y2="${SH.gy}" class="sf-ink" stroke-width="2"/>`;
+  for(let x=30;x<=650;x+=14) g+=`<line x1="${x}" y1="${SH.gy+2}" x2="${x-8}" y2="${SH.gy+10}" class="sf-ink" stroke-width="1" opacity=".35"/>`;
+  // stick lengths along the ground
+  for(let k=1;k<=4;k++)[-1,1].forEach(side=>{const x=X(side*k*SH.scale);if(x<30||x>650)return;
+    g+=`<circle cx="${x}" cy="${SH.gy}" r="2.6" class="sf-fill"/>`;g+=txt(x,SH.gy+30,digits(k)+'×','middle','sf-muted')});
+  g+=txt(rtl?650:30,SH.gy-12,W('East','شرق'),'start','sf-muted');
+  g+=txt(rtl?30:650,SH.gy-12,W('West','غرب'),'end','sf-muted');
+  // where ʿAṣr begins (afternoon shadows point east)
+  [[1+s0,W('ʿAṣr — most scholars','العصر — الجمهور'),ASR1,112],[2+s0,W('ʿAṣr — Ḥanafī','العصر — الحنفية'),ASR2,78]].forEach(([r,label,tm,h])=>{
+    const x=X(-r*SH.scale);
+    g+=`<line x1="${x}" y1="${SH.gy}" x2="${x}" y2="${SH.gy-h}" class="sf-ink" stroke-width="1" stroke-dasharray="3 4" opacity=".6"/>`;
+    g+=txt(x,SH.gy-h-8,`${label} · ${clock(tm)}`,'middle','sf-small');
   });
-  // noon shadow s0
-  g+=`<line x1="${X(-s0*SH.scale)}" y1="${SH.gy-5}" x2="${X(-s0*SH.scale)}" y2="${SH.gy+5}" stroke="#111" stroke-width="1.2"/>`;
-  g+=lab(X(-s0*SH.scale),SH.gy-10,'<tspan font-style="italic">s</tspan><tspan font-size="9" dy="3">0</tspan>','middle','font-size="12"');
-  // ray, shadow and gnomon
-  g+=`<line x1="${sunX}" y1="${sunY}" x2="${tip}" y2="${SH.gy}" stroke="#111" stroke-width=".9" stroke-dasharray="5 4"/>`;
-  g+=`<line x1="${SH.cx}" y1="${SH.gy}" x2="${tip}" y2="${SH.gy}" stroke="#111" stroke-width="5"/>`;
-  g+=`<line x1="${SH.cx}" y1="${SH.gy}" x2="${SH.cx}" y2="${SH.gy-SH.h}" stroke="#111" stroke-width="3"/>`;
-  g+=`<circle cx="${SH.cx}" cy="${SH.gy-SH.h}" r="2.6" fill="#111"/>`;
-  const hx=X(16);
-  g+=`<line x1="${hx}" y1="${SH.gy}" x2="${hx}" y2="${SH.gy-SH.h}" stroke="#111" stroke-width=".8"/><line x1="${hx-4}" y1="${SH.gy-SH.h}" x2="${hx+4}" y2="${SH.gy-SH.h}" stroke="#111" stroke-width=".8"/>`;
-  g+=lab(X(28),SH.gy-SH.h/2+4,'<tspan font-style="italic">h</tspan>','middle');
-  // altitude angle at the shadow tip
-  if(len>40){
-    const ux=Math.sign(SH.cx-tip),ar=30;
-    const p0x=tip+ux*ar,p1x=tip+ux*ar*Math.cos(alpha),p1y=SH.gy-ar*Math.sin(alpha);
-    g+=`<path d="M${p0x} ${SH.gy} A${ar} ${ar} 0 0 ${ux>0?0:1} ${p1x} ${p1y}" fill="none" stroke="#111" stroke-width=".9"/>`;
-    g+=lab(tip+ux*(ar+12)*Math.cos(alpha/2),SH.gy-(ar+12)*Math.sin(alpha/2)+4,'<tspan font-style="italic">α</tspan>');
-  }
-  // shadow dimension below the ground
-  if(len>18){g+=`<line x1="${SH.cx}" y1="${SH.gy+36}" x2="${tip}" y2="${SH.gy+36}" stroke="#111" stroke-width=".8" marker-start="url(#arw)" marker-end="url(#arw)"/>`;
-    g+=lab((SH.cx+tip)/2,SH.gy+54,`<tspan font-style="italic">s</tspan> = ${digits(ratio>=4.8?'> 4.8':ratio.toFixed(2))} <tspan font-style="italic">h</tspan>`,'middle','font-size="12"');}
-  // the sun: astronomical symbol
-  g+=`<circle cx="${sunX}" cy="${sunY}" r="9" fill="#fff" stroke="#111" stroke-width="1.4"/><circle cx="${sunX}" cy="${sunY}" r="1.8" fill="#111"/>`;
-  g=`<defs><marker id="arw" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9" fill="none" stroke="#111" stroke-width="1.4"/></marker></defs>`+g;
+  // the shadow: a soft grey band on the ground
+  g+=`<line x1="${SH.cx}" y1="${SH.gy-4}" x2="${tip}" y2="${SH.gy-4}" class="sf-ink" stroke-width="8" stroke-linecap="round" opacity=".28"/>`;
+  // the sun's ray over the top of the stick
+  g+=`<line x1="${sunX}" y1="${sunY}" x2="${tip}" y2="${SH.gy}" class="sf-ink" stroke-width="1.4" stroke-dasharray="1 6" stroke-linecap="round" opacity=".7"/>`;
+  // the stick
+  g+=`<line x1="${SH.cx}" y1="${SH.gy}" x2="${SH.cx}" y2="${SH.gy-SH.stick}" class="sf-ink" stroke-width="4" stroke-linecap="round"/>`;
+  g+=txt(X(-16),SH.gy-SH.stick/2,W('stick','العصا'),'end','sf-muted');
+  if(len>60)g+=txt((SH.cx+tip)/2,SH.gy+52,W('shadow','الظل'),'middle','sf-muted');
+  // the sun: a plain circle with short rays
+  let rays='';for(let i=0;i<8;i++){const a=i*Math.PI/4;rays+=`<line x1="${sunX+Math.cos(a)*17}" y1="${sunY+Math.sin(a)*17}" x2="${sunX+Math.cos(a)*23}" y2="${sunY+Math.sin(a)*23}" class="sf-ink" stroke-width="1.6" stroke-linecap="round"/>`}
+  g+=rays+`<circle cx="${sunX}" cy="${sunY}" r="11" class="sf-paper" stroke-width="2"/>`;
   $('shadowSvg').innerHTML=g;
-  // readout
-  const phase=m<ASR1-0.5&&m>=720?W('Dhuhr — shadow growing','الظهر — الظل يزيد'):m<720?W('Before zawāl — shadow shrinking','قبل الزوال — الظل يتناقص'):m<ASR2?W('ʿAṣr has entered (majority)','دخل العصر عند الجمهور'):W('ʿAṣr has entered (all four schools)','دخل العصر عند المذاهب الأربعة');
-  $('shTime').textContent=clock(m);$('shT').textContent=clock(m);
-  $('shA').textContent=digits((alpha*180/Math.PI).toFixed(1))+'°';
-  $('shS').textContent=digits(ratio>=99?'∞':ratio.toFixed(2));
+  // the words under the drawing
+  const phase=m<720?W('Before noon — the shadow is shrinking','قبل الزوال — الظل يقصر')
+    :m<ASR1?W('Dhuhr — the shadow is growing','الظهر — الظل يزيد')
+    :m<ASR2?W('ʿAṣr has begun (most scholars)','دخل العصر عند الجمهور')
+    :W('ʿAṣr has begun (all four schools)','دخل العصر عند المذاهب الأربعة');
+  $('shTime').textContent=clock(m);
+  $('shS').textContent=W('Shadow = ','الظل = ')+digits(ratio>=9.9?'10+':ratio.toFixed(1))+W(' × the stick',' × طول العصا');
   $('shP').textContent=phase;
 }
 function shSet(m){sm=m;$('shRange').value=m;drawShadow(m)}
 function shLoop(ts){if(!shPlaying)return;const dt=shLast?ts-shLast:0;shLast=ts;let m=sm+dt*0.05;if(m>1075)m=365;shSet(m);requestAnimationFrame(shLoop)}
 $('shRange').oninput=e=>shSet(+e.target.value);
-$('shPlay').onclick=()=>{shPlaying=!shPlaying;shLast=0;$('shPlay').classList.toggle('is-playing',shPlaying);$('shPlay').setAttribute('aria-pressed',String(shPlaying));$('shPlay').setAttribute('aria-label',shPlaying?(lang==='ar'?'إيقاف':'Pause'):(lang==='ar'?'تشغيل اليوم':'Play the day'));if(shPlaying)requestAnimationFrame(shLoop)};
+$('shPlay').onclick=()=>{shPlaying=!shPlaying;shLast=0;$('shPlay').classList.toggle('is-playing',shPlaying);$('shPlay').setAttribute('aria-pressed',String(shPlaying));$('shPlay').setAttribute('aria-label',shPlaying?(lang==='ar'?'إيقاف':'Pause'):(lang==='ar'?'شغّل النهار':'Play the day'));if(shPlaying)requestAnimationFrame(shLoop)};
 function loop(ts){
   if(!playing)return;
   const dt=last?(ts-last):0;last=ts;
