@@ -2,224 +2,67 @@
 <html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Fiqh al-Salat · فقه الصلاة</title>
+<meta name="description" content="Fiqh al-Ṣalāt — the times of the five prayers, the signs of their entry, and how the prayer is performed, compared across the four schools. English and Arabic.">
+<meta name="theme-color" content="#F6F4EE">
+<script>(function(){var t;try{t=localStorage.getItem('sakina-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t);try{var l=localStorage.getItem('fs-lang');if(l==='ar'){var h=document.documentElement;h.lang='ar';h.dir='rtl';h.setAttribute('data-lang','ar')}}catch(e){}})();</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235B7A1E' d='M23 12L19.78 15.22L19.78 19.78L15.22 19.78L12 23L8.78 19.78L4.22 19.78L4.22 15.22L1 12L4.22 8.78L4.22 4.22L8.78 4.22L12 1L15.22 4.22L19.78 4.22L19.78 8.78Z'/%3E%3Ccircle cx='12' cy='12' r='4.4' fill='%23F6F4EE'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@500;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#070b18; --bg2:#0d1428; --card:#111a33; --card2:#16213f; --line:#243056;
-  --text:#ece7da; --muted:#9aa3bd; --gold:#d9b25a; --gold2:#f3d98b; --teal:#3dd6c0;
-  --fadl:#f2c14e; --ikht:#34d399; --jawaz:#60a5fa; --karaha:#fb923c; --darura:#f43f5e; --forbid:#a855f7;
-  --label-w:150px; --radius:16px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;
-  background-image:
-    radial-gradient(ellipse at 20% -10%,rgba(217,178,90,.14),transparent 55%),
-    radial-gradient(ellipse at 90% 10%,rgba(61,214,192,.08),transparent 50%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d9b25a' stroke-opacity='.06' stroke-width='1'%3E%3Cpath d='M40 4 L50 30 L76 40 L50 50 L40 76 L30 50 L4 40 L30 30Z'/%3E%3Crect x='22' y='22' width='36' height='36' transform='rotate(45 40 40)'/%3E%3Crect x='22' y='22' width='36' height='36'/%3E%3C/g%3E%3C/svg%3E");
-}
-[data-lang="ar"] body,[data-lang="ar"] .ar{font-family:Amiri,serif}
-[data-lang="ar"] body{font-size:1.12rem}
-[data-lang="ar"] .en{display:none!important}
-[data-lang="en"] .ar{display:none!important}
-.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
-a{color:var(--gold2)}
-
-/* nav */
-nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(7,11,24,.75);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;gap:18px;height:62px}
-.brand{font-family:'Reem Kufi',sans-serif;font-size:1.35rem;color:var(--gold);white-space:nowrap;text-decoration:none}
-.links{display:flex;gap:18px;margin-inline-start:auto;font-size:.9rem}
-.links a{color:var(--muted);text-decoration:none;transition:.2s}
-.links a:hover{color:var(--gold2)}
-.lang{border:1px solid var(--gold);background:transparent;color:var(--gold2);border-radius:999px;padding:6px 14px;cursor:pointer;font-weight:600;font-family:inherit}
-.lang:hover{background:var(--gold);color:#111}
-@media(max-width:820px){.links{display:none}.lang{margin-inline-start:auto}}
-
-/* hero */
-.hero{text-align:center;padding:80px 0 60px;position:relative}
-.star{width:120px;height:120px;margin:0 auto 22px;animation:spin 60s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero h1{font-family:'Reem Kufi',sans-serif;font-size:clamp(2.6rem,7vw,5rem);line-height:1.15;
-  background:linear-gradient(120deg,var(--gold2),var(--gold) 40%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--gold2);margin-top:6px}
-.ayah{margin:34px auto 0;max-width:720px;padding:22px 26px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(217,178,90,.07),transparent)}
-.ayah .q{font-family:Amiri,serif;font-size:1.8rem;color:var(--gold2);direction:rtl}
-.ayah .t{color:var(--muted);font-style:italic;margin-top:6px}
-.cta{display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap}
-.btn{padding:11px 22px;border-radius:999px;border:1px solid var(--gold);color:var(--text);text-decoration:none;font-weight:600;background:transparent;cursor:pointer;font-family:inherit;font-size:.95rem;transition:.2s}
-.btn.primary{background:linear-gradient(135deg,var(--gold),#b8893a);color:#15110a;border:none}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(217,178,90,.25)}
-
-/* sections */
-section{padding:60px 0}
-.sec-head{text-align:center;margin-bottom:34px}
-.sec-head .kicker{color:var(--teal);letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;font-weight:600}
-[data-lang="ar"] .sec-head .kicker{letter-spacing:0;font-size:1rem}
-.sec-head h2{font-family:'Reem Kufi',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--gold2);margin-top:4px}
-.sec-head p{color:var(--muted);max-width:720px;margin:8px auto 0}
-.card{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-
-/* madhhab switch */
-.madhahib{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
-.mbtn{position:relative;padding:12px 22px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;font-family:inherit;min-width:140px;transition:.25s}
-.mbtn b{display:block;font-size:1rem}
-.mbtn small{color:var(--muted);font-size:.75rem}
-.mbtn:hover{border-color:var(--gold)}
-.mbtn.on{border-color:var(--gold);background:linear-gradient(135deg,rgba(217,178,90,.22),rgba(217,178,90,.05));box-shadow:0 0 0 3px rgba(217,178,90,.15),0 10px 30px rgba(0,0,0,.35)}
-.mbtn.on::after{content:"";position:absolute;inset:auto 30% -1px 30%;height:3px;border-radius:3px;background:var(--gold)}
-
-/* legend */
-.legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:18px;font-size:.85rem}
-.legend span{display:flex;align-items:center;gap:6px;color:var(--muted)}
-.sw{width:16px;height:10px;border-radius:3px;display:inline-block}
-.t-fadl{background:var(--fadl)}.t-ikht{background:var(--ikht)}.t-jawaz{background:var(--jawaz)}
-.t-karaha{background:var(--karaha)}.t-darura{background:var(--darura)}
-.t-forbid{background:repeating-linear-gradient(45deg,var(--forbid) 0 4px,rgba(168,85,247,.25) 4px 8px)}
-
-/* gantt */
-.gantt-scroll{overflow-x:auto;padding-bottom:6px}
-.gantt{position:relative;min-width:900px;direction:ltr}
-.g-row{display:flex;align-items:center;height:46px;border-bottom:1px dashed rgba(36,48,86,.7)}
-.g-label{width:var(--label-w);flex:none;padding-inline-end:12px;font-weight:600;font-size:.95rem;line-height:1.15}
-.g-label small{display:block;color:var(--muted);font-weight:400;font-size:.72rem}
-.g-label .ar{font-size:1.15rem}
-.g-track{position:relative;flex:1;height:26px;border-radius:8px;background:rgba(255,255,255,.025)}
-.seg{position:absolute;top:0;height:100%;width:0;border-radius:6px;cursor:pointer;
-  transition:width .9s cubic-bezier(.2,.8,.2,1),left .9s cubic-bezier(.2,.8,.2,1),filter .2s,box-shadow .3s;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
-.seg:hover{filter:brightness(1.18)}
-.seg.live{box-shadow:0 0 0 2px #fff,0 0 18px rgba(255,255,255,.5)}
-.sky-row{height:84px;border-bottom:none}
-.sky{position:relative;flex:1;height:70px;border-radius:12px;overflow:hidden}
-.sun{position:absolute;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle,#fff6c9,#ffc93c 60%,#ff9d2e);box-shadow:0 0 22px 8px rgba(255,201,60,.55);transform:translate(-50%,-50%);transition:opacity .3s}
-.moon{position:absolute;width:16px;height:16px;border-radius:50%;box-shadow:inset -5px 2px 0 0 #e8e4d0;transform:translate(-50%,-50%) rotate(-20deg)}
-.starfield{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 30%,#fff,transparent),radial-gradient(1px 1px at 30% 60%,#fff,transparent),radial-gradient(1px 1px at 80% 20%,#fff,transparent),radial-gradient(1px 1px at 92% 70%,#fff,transparent),radial-gradient(1px 1px at 4% 75%,#fff,transparent),radial-gradient(1px 1px at 88% 45%,#fff,transparent);opacity:.7}
-.overlay{position:absolute;top:0;bottom:0;left:var(--label-w);right:0;pointer-events:none}
-.vline{position:absolute;top:84px;bottom:28px;width:0;border-left:1px dashed rgba(217,178,90,.28)}
-.evlabel{position:absolute;transform:translateX(-50%);font-size:.66rem;white-space:nowrap;color:var(--gold2);background:rgba(7,11,24,.8);padding:1px 6px;border-radius:6px;border:1px solid rgba(217,178,90,.3);pointer-events:auto;cursor:default}
-.evlabel.ar{font-size:.8rem}
-.playhead{position:absolute;top:0;bottom:28px;width:2px;background:linear-gradient(var(--teal),rgba(61,214,192,.4));box-shadow:0 0 12px var(--teal)}
-.playhead::before{content:attr(data-t);position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);background:var(--teal);color:#062;font-weight:700;font-size:.72rem;padding:1px 7px;border-radius:6px;color:#04221d}
-.axis{position:relative;height:28px;margin-left:var(--label-w)}
-.tick{position:absolute;top:6px;transform:translateX(-50%);font-size:.68rem;color:var(--muted)}
-.tick::before{content:"";position:absolute;top:-6px;left:50%;height:5px;border-left:1px solid var(--line)}
-
-.controls{display:flex;gap:12px;align-items:center;margin-top:16px;flex-wrap:wrap}
-.controls input[type=range]{flex:1;min-width:200px;accent-color:var(--teal)}
-.speed{display:flex;gap:4px}
-.speed button{padding:5px 10px;font-size:.8rem;border-radius:8px;border:1px solid var(--line);background:var(--card2);color:var(--muted);cursor:pointer}
-.speed button.on{color:var(--teal);border-color:var(--teal)}
-.status{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
-.st{padding:10px 14px;border-radius:12px;background:var(--card2);border:1px solid var(--line);display:flex;align-items:center;gap:10px;font-size:.9rem;animation:pop .35s ease}
-.st .dot{width:10px;height:10px;border-radius:50%;flex:none}
-.st.none{color:var(--muted)}
-@keyframes pop{from{opacity:0;transform:translateY(6px)}}
-
-#tip{position:fixed;z-index:100;pointer-events:none;max-width:320px;background:#0b1226;border:1px solid var(--gold);border-radius:12px;padding:10px 14px;font-size:.85rem;opacity:0;transition:opacity .15s;box-shadow:0 14px 40px rgba(0,0,0,.5)}
-#tip b{color:var(--gold2)}
-#tip .tm{color:var(--teal);font-weight:600;direction:ltr;display:inline-block}
-
-/* entry cards */
-.grid{display:grid;gap:16px}
-.g5{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
-.g3{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
-@media(max-width:420px){.g2,.g3{grid-template-columns:1fr}}
-.pcard{position:relative;overflow:hidden;transition:transform .3s}
-.pcard:hover{transform:translateY(-4px)}
-.pcard h3{font-family:'Reem Kufi',sans-serif;color:var(--gold2);font-size:1.3rem;display:flex;justify-content:space-between;align-items:baseline}
-.pcard h3 small{font-family:Inter;font-size:.7rem;color:var(--muted);font-weight:500}
-.pcard .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-top:12px;font-weight:600}
-[data-lang="ar"] .pcard .lbl{letter-spacing:0;font-size:.95rem}
-.pcard p{font-size:.9rem;color:#d6d1c3}
-.pcard .note{margin-top:12px;padding:10px 12px;border-radius:10px;background:rgba(217,178,90,.08);border-inline-start:3px solid var(--gold);font-size:.85rem;animation:pop .4s ease}
-.pcard .glyph{position:absolute;inset-inline-end:-10px;bottom:-24px;font-family:Amiri;font-size:6rem;color:rgba(217,178,90,.06);pointer-events:none}
-
-/* visuals */
-.demo svg{width:100%;height:auto;display:block}
-.demo .cap{color:var(--muted);font-size:.85rem;margin-top:8px}
-.ratio{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold2)}
-
-/* rules */
-details{border:1px solid var(--line);border-radius:14px;background:var(--card);margin-bottom:12px;overflow:hidden}
-summary{cursor:pointer;padding:16px 20px;font-weight:600;list-style:none;display:flex;align-items:center;gap:12px}
-summary::-webkit-details-marker{display:none}
-summary .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(217,178,90,.12);color:var(--gold2);flex:none;font-size:1.05rem}
-summary::after{content:"+";margin-inline-start:auto;color:var(--gold);font-size:1.4rem;transition:.3s}
-details[open] summary::after{transform:rotate(45deg)}
-details .body{padding:0 20px 18px;color:#d6d1c3;font-size:.92rem}
-details .body li{margin:6px 0;margin-inline-start:18px}
-table{width:100%;border-collapse:collapse;font-size:.88rem}
-th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
-th{color:var(--gold2);font-weight:600;background:rgba(217,178,90,.06)}
-.tag{display:inline-block;font-size:.72rem;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin:2px}
-.mz{color:var(--gold2);font-weight:600}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;counter-reset:s}
-.step{position:relative;text-align:center;padding:18px 16px 20px;transition:.3s}
-.step:hover{border-color:var(--gold);transform:translateY(-4px)}
-.step .n{position:absolute;top:10px;inset-inline-start:12px;font-family:'Reem Kufi';color:var(--gold);font-size:1.1rem;opacity:.7}
-.step svg{width:64px;height:84px;margin:0 auto 6px;display:block}
-.step svg *{stroke:var(--gold2);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;fill:none}
-.step svg circle{fill:var(--gold2)}
-.step svg .gr{stroke:var(--line);stroke-width:2}
-.step h4{font-family:'Reem Kufi';color:var(--gold2);font-size:1.05rem}
-.step p{font-size:.84rem;color:#cfc9ba;margin-top:4px}
-.step .dh{font-family:Amiri;color:var(--teal);font-size:1.05rem;margin-top:6px;direction:rtl}
-.step:hover svg{animation:bob 1s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-4px)}}
-
-.list-card h3{font-family:'Reem Kufi';color:var(--gold2);margin-bottom:10px;font-size:1.2rem}
-.list-card ol,.list-card ul{margin-inline-start:20px;font-size:.9rem;color:#d6d1c3}
-.list-card li{margin:5px 0}
-
-footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;color:var(--muted);font-size:.85rem}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Instrument+Serif:ital@0;1&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/sakina.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="sk-project-fiqh">
+<a class="sk-skip" href="#times">Skip to the timeline</a>
+<div class="sk-pattern" aria-hidden="true"></div>
 
-<nav><div class="wrap">
-  <a class="brand" href="#top">فقه الصلاة</a>
-  <div class="links">
-    <a href="#times"><span class="en">Timings</span><span class="ar">المواقيت</span></a>
-    <a href="#signs"><span class="en">Signs of Entry</span><span class="ar">علامات الدخول</span></a>
-    <a href="#rules"><span class="en">Rulings</span><span class="ar">الأحكام</span></a>
-    <a href="#how"><span class="en">How to Pray</span><span class="ar">صفة الصلاة</span></a>
-  </div>
-  <button class="lang" id="langBtn">العربية</button>
-</div></nav>
-
-<header class="hero wrap" id="top">
-  <svg class="star" viewBox="0 0 100 100" aria-hidden="true">
-    <g fill="none" stroke="#d9b25a" stroke-width="1.4">
-      <rect x="20" y="20" width="60" height="60"/><rect x="20" y="20" width="60" height="60" transform="rotate(45 50 50)"/>
-      <circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="44" stroke-opacity=".35"/>
-      <path d="M50 8 L56 44 L92 50 L56 56 L50 92 L44 56 L8 50 L44 44Z" stroke="#3dd6c0" stroke-opacity=".7"/>
-    </g>
-  </svg>
-  <h1><span class="ar">فقه الصلاة</span><span class="en">Fiqh al-Ṣalāt</span></h1>
-  <div class="sub"><span class="en">The Jurisprudence of Prayer — its times, its signs, its form</span><span class="ar">مواقيتها، وعلامات دخولها، وصفتها على المذاهب الأربعة</span></div>
-  <div class="ayah">
-    <div class="q">﴿ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا ﴾</div>
-    <div class="t"><span class="en">"Indeed, prayer has been decreed upon the believers at fixed times." — al-Nisāʾ 4:103</span><span class="ar">سورة النساء: ١٠٣</span></div>
-  </div>
-  <div class="cta">
-    <a class="btn primary" href="#times"><span class="en">Explore the timeline</span><span class="ar">استكشف المخطط الزمني</span></a>
-    <a class="btn" href="#how"><span class="en">How to pray</span><span class="ar">صفة الصلاة</span></a>
+<header class="sk-header">
+  <div class="sk-container sk-header__inner">
+    <a class="sk-brand" href="#top">
+      <span class="sk-tile sk-tile--sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M6 21V11a6 6 0 0 1 12 0v10"/><path d="M9.5 21v-6.5a2.5 2.5 0 0 1 5 0V21"/><path d="M12 3V1.5"/></svg></span>
+      <span class="sk-brand__text"><span class="sk-brand__name" lang="en">Fiqh al-Ṣalāt</span><span class="sk-brand__sub" lang="ar">فقه الصلاة</span></span>
+    </a>
+    <nav class="sk-header__nav" aria-label="Site">
+      <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#times"><span class="en">Timings</span><span class="ar">المواقيت</span></a>
+      <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#signs"><span class="en">Signs</span><span class="ar">العلامات</span></a>
+      <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#rules"><span class="en">Rulings</span><span class="ar">الأحكام</span></a>
+      <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#how"><span class="en">How to pray</span><span class="ar">صفة الصلاة</span></a>
+      <button class="sk-btn sk-btn--ghost sk-btn--sm fs-lang" id="langBtn" type="button">العربية</button>
+      <a class="sk-btn sk-btn--line sk-btn--sm sk-projects" href="https://husseinbenz.github.io/islamic-projects/" aria-label="All Islamic projects">
+        <span class="sk-constellation" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="sk-hide-sm">All projects</span></a>
+      <button class="sk-icon-btn sk-theme-btn" type="button" data-sk-theme-toggle aria-label="Switch to night theme">
+        <svg class="sk-i-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg class="sk-i-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </nav>
   </div>
 </header>
 
+<main>
+<section class="sk-container hero" id="top">
+  <svg class="hero__star sk-slow-spin" viewBox="0 0 100 100" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="1.4">
+      <rect x="20" y="20" width="60" height="60"/><rect x="20" y="20" width="60" height="60" transform="rotate(45 50 50)"/>
+      <circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="44" stroke-opacity=".35"/>
+      <path class="inner" d="M50 8 L56 44 L92 50 L56 56 L50 92 L44 56 L8 50 L44 44Z" stroke="currentColor" stroke-opacity=".8"/>
+    </g>
+  </svg>
+  <h1 class="sk-display sk-rise"><span class="ar">فقه الصلاة</span><span class="en">Fiqh al-<em>Ṣalāt</em></span></h1>
+  <p class="sub sk-rise sk-d1"><span class="en">The Jurisprudence of Prayer — its times, its signs, its form</span><span class="ar">مواقيتها، وعلامات دخولها، وصفتها على المذاهب الأربعة</span></p>
+  <div class="ayah sk-rise sk-d2">
+    <div class="q">﴿ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا ﴾</div>
+    <div class="t"><span class="en">"Indeed, prayer has been decreed upon the believers at fixed times." — al-Nisāʾ 4:103</span><span class="ar">سورة النساء: ١٠٣</span></div>
+  </div>
+  <div class="cta sk-rise sk-d3">
+    <a class="sk-btn sk-btn--accent sk-btn--lg" href="#times"><span class="en">Explore the timeline</span><span class="ar">استكشف المخطط الزمني</span></a>
+    <a class="sk-btn sk-btn--line sk-btn--lg" href="#how"><span class="en">How to pray</span><span class="ar">صفة الصلاة</span></a>
+  </div>
+</section>
+
 <!-- TIMINGS -->
-<section id="times"><div class="wrap">
+<section id="times" class="fs-section"><div class="sk-container">
   <div class="sec-head reveal">
     <div class="kicker"><span class="en">Awqāt al-Ṣalāt</span><span class="ar">مواقيت الصلاة</span></div>
     <h2><span class="en">The Timeline of the Five Prayers</span><span class="ar">الخريطة الزمنية للصلوات الخمس</span></h2>
@@ -229,7 +72,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;co
   <div class="madhahib" id="madhahib"></div>
   <div class="legend" id="legend"></div>
 
-  <div class="card reveal">
+  <div class="card timeline reveal">
     <div class="gantt-scroll">
       <div class="gantt" id="gantt">
         <div class="g-row sky-row">
@@ -242,20 +85,20 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;co
       </div>
     </div>
     <div class="controls">
-      <button class="btn primary" id="playBtn">▶ <span class="en">Play day</span><span class="ar">تشغيل</span></button>
+      <button class="sk-btn sk-btn--accent play-btn" id="playBtn" type="button" aria-pressed="false"><svg class="i-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg><svg class="i-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><span class="en">Play day</span><span class="ar">تشغيل</span></button>
       <input type="range" id="scrub" min="210" max="1710" step="1" value="780" aria-label="time">
       <div class="speed" id="speed"><button data-s="0.5">½×</button><button data-s="1" class="on">1×</button><button data-s="2">2×</button></div>
     </div>
     <div class="status" id="status"></div>
   </div>
-  <p style="color:var(--muted);font-size:.8rem;text-align:center;margin-top:12px">
+  <p class="fine-print">
     <span class="en">Times are illustrative for a mid-latitude day near the equinox. Real times vary by date and location — use a trusted local timetable.</span>
     <span class="ar">الأوقات تقريبية ليوم نموذجي قرب الاعتدال في العروض المتوسطة، وتختلف باختلاف التاريخ والمكان؛ فاعتمد تقويمًا محليًا موثوقًا.</span>
   </p>
 </div></section>
 
 <!-- SIGNS -->
-<section id="signs"><div class="wrap">
+<section id="signs" class="fs-section"><div class="sk-container">
   <div class="sec-head reveal">
     <div class="kicker"><span class="en">ʿAlāmāt al-Dukhūl</span><span class="ar">علامات دخول الوقت</span></div>
     <h2><span class="en">How Do You Know the Time Has Entered?</span><span class="ar">كيف تعرف أن الوقت قد دخل؟</span></h2>
@@ -293,25 +136,25 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;co
 </div></section>
 
 <!-- RULES -->
-<section id="rules"><div class="wrap">
+<section id="rules" class="fs-section"><div class="sk-container">
   <div class="sec-head reveal">
     <div class="kicker"><span class="en">Aḥkām</span><span class="ar">أحكام</span></div>
     <h2><span class="en">Rulings Related to Time</span><span class="ar">أحكام متعلقة بالوقت</span></h2>
   </div>
 
-  <details open class="reveal"><summary><span class="ic">⛔</span><span class="en">Times in which prayer is prohibited</span><span class="ar">أوقات النهي عن الصلاة</span></summary><div class="body">
-    <table>
+  <details open class="rule reveal"><summary><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m5.7 5.7 12.6 12.6"/></svg></span><span class="en">Times in which prayer is prohibited</span><span class="ar">أوقات النهي عن الصلاة</span></summary><div class="body">
+    <div class="table-wrap"><table>
       <tr><th><span class="en">Time</span><span class="ar">الوقت</span></th><th><span class="en">Ruling</span><span class="ar">الحكم</span></th></tr>
       <tr><td><span class="en">After the Fajr prayer until sunrise</span><span class="ar">بعد صلاة الفجر حتى طلوع الشمس</span></td><td><span class="en">No voluntary prayer; missed obligatory prayers may be made up.</span><span class="ar">لا يُتنفَّل فيه، ويجوز قضاء الفوائت.</span></td></tr>
       <tr><td><span class="en">From sunrise until the sun rises a spear's length (~15 min)</span><span class="ar">من طلوع الشمس حتى ترتفع قيد رمح (نحو ربع ساعة)</span></td><td><span class="en">Strongly prohibited. Ḥanafīs: no prayer at all is valid, not even a missed obligatory one.</span><span class="ar">نهي مؤكد، وعند الحنفية لا تصح فيه صلاة أصلًا ولو قضاء فرض.</span></td></tr>
       <tr><td><span class="en">When the sun is at its zenith (istiwāʾ) until zawāl</span><span class="ar">عند استواء الشمس حتى تزول</span></td><td><span class="en">Prohibited (Ḥanafī, Shāfiʿī, Ḥanbalī). Mālikīs: not disliked in the relied-upon view. Shāfiʿīs exempt Friday.</span><span class="ar">منهي عنه عند الحنفية والشافعية والحنابلة، ولا كراهة فيه عند المالكية على المشهور، واستثنى الشافعية يوم الجمعة.</span></td></tr>
       <tr><td><span class="en">After the ʿAṣr prayer until sunset</span><span class="ar">بعد صلاة العصر حتى الغروب</span></td><td><span class="en">No voluntary prayer; obligatory make-ups allowed.</span><span class="ar">لا يُتنفَّل فيه، ويجوز قضاء الفوائت.</span></td></tr>
       <tr><td><span class="en">When the sun yellows until it sets</span><span class="ar">عند اصفرار الشمس حتى تغرب</span></td><td><span class="en">Strongly prohibited. Ḥanafīs allow only that same day's ʿAṣr (with dislike).</span><span class="ar">نهي مؤكد، وأجاز الحنفية فيه عصر يومه فقط مع الكراهة.</span></td></tr>
-    </table>
+    </table></div>
     <p style="margin-top:10px"><span class="mz">Shāfiʿī:</span> <span class="en">prayers with a preceding cause (e.g. taḥiyyat al-masjid, prayer after wuḍūʾ, funeral) are allowed in these times, and so is any prayer within the Ḥaram of Makkah.</span><span class="ar">تجوز فيها ذوات الأسباب المتقدمة كتحية المسجد وسنة الوضوء وصلاة الجنازة، وتجوز كل صلاة في حرم مكة.</span></p>
   </div></details>
 
-  <details class="reveal"><summary><span class="ic">⏳</span><span class="en">Catching the prayer within its time (idrāk)</span><span class="ar">إدراك الصلاة في وقتها</span></summary><div class="body">
+  <details class="rule reveal"><summary><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12M6 22h12"/><path d="M7 2v4a5 5 0 0 0 10 0V2M7 22v-4a5 5 0 0 1 10 0v4"/></svg></span><span class="en">Catching the prayer within its time (idrāk)</span><span class="ar">إدراك الصلاة في وقتها</span></summary><div class="body">
     <p><span class="en">If someone begins a prayer near the end of its time, when is it counted as performed on time (adāʾ)?</span><span class="ar">من شرع في الصلاة آخر وقتها، فمتى تكون أداءً؟</span></p>
     <ul>
       <li><span class="mz"><span class="en">Ḥanafī & Ḥanbalī:</span><span class="ar">الحنفية والحنابلة:</span></span> <span class="en">by reaching the opening takbīr within the time.</span><span class="ar">بإدراك تكبيرة الإحرام في الوقت.</span></li>
@@ -320,18 +163,18 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;co
     <p><span class="en">Deliberately delaying a prayer until too little time remains to complete it is sinful by consensus.</span><span class="ar">وتعمّد تأخير الصلاة حتى لا يبقى من وقتها ما يسعها حرام بالاتفاق.</span></p>
   </div></details>
 
-  <details class="reveal"><summary><span class="ic">🤝</span><span class="en">Combining prayers (al-jamʿ)</span><span class="ar">الجمع بين الصلاتين</span></summary><div class="body">
+  <details class="rule reveal"><summary><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></span><span class="en">Combining prayers (al-jamʿ)</span><span class="ar">الجمع بين الصلاتين</span></summary><div class="body">
     <p><span class="en">Dhuhr may be combined with ʿAṣr, and Maghrib with ʿIshāʾ — in the time of the first (taqdīm) or the second (taʾkhīr).</span><span class="ar">يُجمع الظهر مع العصر، والمغرب مع العشاء، جمع تقديم أو تأخير.</span></p>
-    <table>
+    <div class="table-wrap"><table>
       <tr><th><span class="en">Madhhab</span><span class="ar">المذهب</span></th><th><span class="en">Valid reasons</span><span class="ar">الأسباب المبيحة</span></th></tr>
       <tr><td class="mz"><span class="en">Ḥanafī</span><span class="ar">الحنفي</span></td><td><span class="en">Only at ʿArafah (taqdīm) and Muzdalifah (taʾkhīr) during Ḥajj. Otherwise only “formal” combining: Dhuhr at the end of its time, ʿAṣr at the start of its time.</span><span class="ar">لا جمع إلا بعرفة (تقديمًا) ومزدلفة (تأخيرًا) في الحج، وما سوى ذلك فجمع صوري: الظهر آخر وقته والعصر أول وقته.</span></td></tr>
       <tr><td class="mz"><span class="en">Mālikī</span><span class="ar">المالكي</span></td><td><span class="en">Travel, rain/mud at night (Maghrib & ʿIshāʾ in the mosque), illness, ʿArafah & Muzdalifah.</span><span class="ar">السفر، والمطر والطين مع الظلمة (للمغرب والعشاء في المسجد)، والمرض، وعرفة ومزدلفة.</span></td></tr>
       <tr><td class="mz"><span class="en">Shāfiʿī</span><span class="ar">الشافعي</span></td><td><span class="en">Long travel (either taqdīm or taʾkhīr); rain for congregational prayer (taqdīm only).</span><span class="ar">السفر الطويل تقديمًا وتأخيرًا، والمطر للجماعة تقديمًا فقط.</span></td></tr>
       <tr><td class="mz"><span class="en">Ḥanbalī</span><span class="ar">الحنبلي</span></td><td><span class="en">Widest: travel, illness, rain, mud, strong cold wind, breast-feeding women, and those with a genuine need.</span><span class="ar">أوسع المذاهب: السفر، والمرض، والمطر، والوحل، والريح الشديدة الباردة، والمرضع، وأصحاب الأعذار.</span></td></tr>
-    </table>
+    </table></div>
   </div></details>
 
-  <details class="reveal"><summary><span class="ic">↺</span><span class="en">Making up missed prayers (qaḍāʾ)</span><span class="ar">قضاء الفوائت</span></summary><div class="body">
+  <details class="rule reveal"><summary><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></span><span class="en">Making up missed prayers (qaḍāʾ)</span><span class="ar">قضاء الفوائت</span></summary><div class="body">
     <ul>
       <li><span class="en">A missed obligatory prayer must be made up — immediately if missed without excuse. “Whoever sleeps through a prayer or forgets it, let him pray it when he remembers it.”</span><span class="ar">يجب قضاء الفائتة، وعلى الفور إن فاتت بغير عذر؛ لحديث: «من نام عن صلاة أو نسيها فليصلها إذا ذكرها».</span></li>
       <li><span class="mz"><span class="en">Order (tartīb):</span><span class="ar">الترتيب:</span></span> <span class="en">obligatory between the current prayer and a small number of missed ones for Ḥanafīs (under six), Mālikīs (up to five) and Ḥanbalīs; it drops if forgotten or if time is short. Shāfiʿīs: recommended only.</span><span class="ar">واجب بين الحاضرة والفوائت اليسيرة عند الحنفية (ما دون الست) والمالكية (خمس فأقل) والحنابلة، ويسقط بالنسيان وضيق الوقت، وهو سنة عند الشافعية.</span></li>
@@ -339,7 +182,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;co
     </ul>
   </div></details>
 
-  <details class="reveal"><summary><span class="ic">📢</span><span class="en">Adhān, certainty & special cases</span><span class="ar">الأذان واليقين ومسائل خاصة</span></summary><div class="body">
+  <details class="rule reveal"><summary><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg></span><span class="en">Adhān, certainty & special cases</span><span class="ar">الأذان واليقين ومسائل خاصة</span></summary><div class="body">
     <ul>
       <li><span class="en">A prayer performed before its time is invalid even if done in good faith; one must have certainty or strong presumption (ghalabat al-ẓann) that the time has entered.</span><span class="ar">لا تصح الصلاة قبل وقتها ولو ظنًّا، ويشترط اليقين أو غلبة الظن بدخول الوقت.</span></li>
       <li><span class="en">Adhān before time is invalid — except for Fajr: Mālikīs, Shāfiʿīs and Ḥanbalīs allow it after midnight (with a second adhān at dawn recommended); Ḥanafīs do not (except Abū Yūsuf).</span><span class="ar">لا يصح الأذان قبل الوقت إلا للفجر: فيجوز بعد نصف الليل عند المالكية والشافعية والحنابلة (ويُستحب أذان ثانٍ عند الفجر)، ومنعه الحنفية إلا أبا يوسف.</span></li>
@@ -351,7 +194,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;co
 </div></section>
 
 <!-- HOW -->
-<section id="how"><div class="wrap">
+<section id="how" class="fs-section"><div class="sk-container">
   <div class="sec-head reveal">
     <div class="kicker"><span class="en">Ṣifat al-Ṣalāt</span><span class="ar">صفة الصلاة</span></div>
     <h2><span class="en">How the Prayer Is Performed</span><span class="ar">كيف تُؤدّى الصلاة</span></h2>
@@ -401,26 +244,33 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;co
     </div>
   </div>
 
-  <div class="card reveal" style="margin-top:22px;overflow-x:auto">
-    <table>
+  <div class="card reveal" style="margin-top:22px">
+    <div class="table-wrap"><table>
       <tr><th><span class="en">Prayer</span><span class="ar">الصلاة</span></th><th><span class="en">Farḍ rakʿahs</span><span class="ar">ركعات الفرض</span></th><th><span class="en">Recitation</span><span class="ar">القراءة</span></th><th><span class="en">Confirmed sunnah</span><span class="ar">السنن الرواتب</span></th></tr>
       <tr><td>الفجر · Fajr</td><td>2</td><td><span class="en">Aloud</span><span class="ar">جهرية</span></td><td><span class="en">2 before (the most emphasised)</span><span class="ar">ركعتان قبلها (آكد الرواتب)</span></td></tr>
       <tr><td>الظهر · Dhuhr</td><td>4</td><td><span class="en">Silent</span><span class="ar">سرية</span></td><td><span class="en">4 before & 2 after (Ḥanafī); 2 + 2 (Shāfiʿī, Ḥanbalī)</span><span class="ar">أربع قبلها وركعتان بعدها (حنفي)، ركعتان وركعتان (شافعي وحنبلي)</span></td></tr>
       <tr><td>العصر · ʿAṣr</td><td>4</td><td><span class="en">Silent</span><span class="ar">سرية</span></td><td><span class="en">4 before (recommended, not emphasised)</span><span class="ar">أربع قبلها (مستحبة غير مؤكدة)</span></td></tr>
       <tr><td>المغرب · Maghrib</td><td>3</td><td><span class="en">Aloud in first two</span><span class="ar">جهر في الأوليين</span></td><td><span class="en">2 after</span><span class="ar">ركعتان بعدها</span></td></tr>
       <tr><td>العشاء · ʿIshāʾ</td><td>4</td><td><span class="en">Aloud in first two</span><span class="ar">جهر في الأوليين</span></td><td><span class="en">2 after, then Witr (wājib, 3 rakʿahs for Ḥanafīs; emphasised sunnah for others)</span><span class="ar">ركعتان بعدها ثم الوتر (واجب ثلاث ركعات عند الحنفية، وسنة مؤكدة عند غيرهم)</span></td></tr>
-    </table>
-    <p style="font-size:.78rem;color:var(--muted);margin-top:8px"><span class="en">Mālikīs do not fix specific rawātib counts, but emphasise the two rakʿahs of Fajr (raghībah) and Witr.</span><span class="ar">لا يحدد المالكية رواتب معينة العدد، ويؤكدون ركعتي الفجر (الرغيبة) والوتر.</span></p>
+    </table></div>
+    <p style="font-size:.78rem;color:var(--text-3);margin-top:8px"><span class="en">Mālikīs do not fix specific rawātib counts, but emphasise the two rakʿahs of Fajr (raghībah) and Witr.</span><span class="ar">لا يحدد المالكية رواتب معينة العدد، ويؤكدون ركعتي الفجر (الرغيبة) والوتر.</span></p>
   </div>
 </div></section>
 
-<footer><div class="wrap">
-  <div style="font-family:Amiri;font-size:1.4rem;color:var(--gold2)">وَأَقِمِ الصَّلَاةَ لِذِكْرِي</div>
-  <p style="margin-top:8px"><span class="en">An educational summary drawn from the standard manuals of the four schools. For personal rulings, consult a qualified scholar of your madhhab.</span><span class="ar">ملخص تعليمي مستفاد من المتون المعتمدة في المذاهب الأربعة، وللفتوى الشخصية راجع عالمًا متخصصًا في مذهبك.</span></p>
-</div></footer>
+</main>
+
+<footer class="sk-footer">
+  <div class="sk-container sk-footer__inner">
+    <p class="fs-footer-dua"><span class="sk-ar" lang="ar">وَأَقِمِ الصَّلَاةَ لِذِكْرِي</span><span><span class="en">An educational summary drawn from the standard manuals of the four schools. For personal rulings, consult a qualified scholar of your madhhab.</span><span class="ar">ملخص تعليمي مستفاد من المتون المعتمدة في المذاهب الأربعة، وللفتوى الشخصية راجع عالمًا متخصصًا في مذهبك.</span></span></p>
+    <a class="sk-footer__home" href="https://husseinbenz.github.io/islamic-projects/">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path style="fill:var(--primary)" d="M23 12L19.78 15.22L19.78 19.78L15.22 19.78L12 23L8.78 19.78L4.22 19.78L4.22 15.22L1 12L4.22 8.78L4.22 4.22L8.78 4.22L12 1L15.22 4.22L19.78 4.22L19.78 8.78Z"/><circle cx="12" cy="12" r="4.4" style="fill:var(--bg)"/></svg>
+      <span class="en">Part of Islamic Projects</span><span class="ar">من المشاريع الإسلامية</span></a>
+  </div>
+</footer>
 
 <div id="tip"></div>
 
+<script src="js/sakina.js"></script>
 <script>
 /* ---------- state ---------- */
 let lang='en', mz='hanafi';
@@ -537,7 +387,7 @@ const STEPS=[
 const $=id=>document.getElementById(id);
 function renderStatic(){
   document.documentElement.lang=lang; document.documentElement.dir=lang==='ar'?'rtl':'ltr'; document.documentElement.dataset.lang=lang;
-  $('langBtn').textContent=lang==='ar'?'English':'العربية';
+  $('langBtn').textContent=lang==='ar'?'English':'العربية';$('langBtn').setAttribute('lang',lang==='ar'?'en':'ar');
   $('madhahib').innerHTML=Object.entries(MZ).map(([k,v])=>`<button class="mbtn ${k===mz?'on':''}" data-m="${k}"><b>${L(v)}</b><small>${L(v.by)}</small></button>`).join('');
   $('legend').innerHTML=Object.entries(TYPES).map(([k,v])=>`<span><i class="sw t-${k}"></i>${L(v)}</span>`).join('');
   $('steps').innerHTML=STEPS.map((s,i)=>`<div class="card step reveal in"><span class="n">${i+1}</span><svg viewBox="0 0 60 80">${P[s[0]]}</svg><h4>${L(s[1])}</h4><p>${L(s[2])}</p><div class="dh">${s[3]}</div></div>`).join('');
@@ -589,7 +439,7 @@ function setMz(m){mz=m;try{localStorage.setItem('fs-mz',m)}catch(e){}
 const tip=$('tip');
 function showTip(ev,s){
   const a=+s.dataset.a,b=+s.dataset.b,ty=TYPES[s.dataset.ty];
-  tip.innerHTML=`<b>${L(ROWS[s.dataset.r])}</b> · <span style="color:${ty.c}">${L(ty)}</span><br><span class="tm">${fmt(a)} → ${fmt(b)}</span>${s._note?`<div style="margin-top:6px;color:#d6d1c3">${L(s._note)}</div>`:''}`;
+  tip.innerHTML=`<b>${L(ROWS[s.dataset.r])}</b> · <span style="color:${ty.c}">${L(ty)}</span><br><span class="tm">${fmt(a)} → ${fmt(b)}</span>${s._note?`<div class="tip-note">${L(s._note)}</div>`:''}`;
   tip.style.opacity=1;
   const x=Math.min(ev.clientX+14,innerWidth-330),y=Math.min(ev.clientY+14,innerHeight-tip.offsetHeight-10);
   tip.style.left=x+'px';tip.style.top=y+'px';
@@ -654,7 +504,7 @@ function loop(ts){
   let m=t+dt*0.06*speed; if(m>END)m=START;
   update(m);requestAnimationFrame(loop);
 }
-$('playBtn').onclick=()=>{playing=!playing;last=0;$('playBtn').firstChild.textContent=playing?'❚❚ ':'▶ ';if(playing)requestAnimationFrame(loop)};
+$('playBtn').onclick=()=>{playing=!playing;last=0;$('playBtn').classList.toggle('is-playing',playing);$('playBtn').setAttribute('aria-pressed',String(playing));if(playing)requestAnimationFrame(loop)};
 $('scrub').oninput=e=>update(+e.target.value);
 $('speed').onclick=e=>{const b=e.target.closest('button');if(!b)return;speed=+b.dataset.s;[...$('speed').children].forEach(x=>x.classList.toggle('on',x===b))};
 $('langBtn').onclick=()=>{lang=lang==='ar'?'en':'ar';try{localStorage.setItem('fs-lang',lang)}catch(e){};renderStatic()};
@@ -664,7 +514,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 renderStatic();
-setTimeout(()=>{ if(!playing) $('playBtn').click(); },1200);
+if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)) setTimeout(()=>{ if(!playing) $('playBtn').click(); },1200);
 </script>
 </body>
 </html>
