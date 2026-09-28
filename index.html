@@ -11,11 +11,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/sakina.css?v=sk3">
-<link rel="stylesheet" href="css/style.css?v=sk3">
+<link rel="stylesheet" href="css/sakina.css?v=sk4">
+<link rel="stylesheet" href="css/style.css?v=sk4">
 </head>
 <body class="sk-project-fiqh">
-<a class="sk-skip" href="#times"><span class="en">Skip to the timeline</span><span class="ar">تخطَّ إلى المخطط الزمني</span></a>
+<a class="sk-skip" href="#signs"><span class="en">Skip to the content</span><span class="ar">تخطَّ إلى المحتوى</span></a>
 <div class="sk-pattern" aria-hidden="true"></div>
 
 <header class="sk-header">
@@ -25,14 +25,14 @@
       <span class="sk-brand__text"><span class="sk-brand__name"><span class="en">Fiqh al-Ṣalāt</span><span class="ar">فقه الصلاة</span></span><span class="sk-brand__sub"><span class="en" lang="ar">فقه الصلاة</span><span class="ar" lang="en">Fiqh al-Ṣalāt</span></span></span>
     </a>
     <nav class="sk-header__nav" aria-label="Site">
-      <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#times"><span class="en">Timings</span><span class="ar">المواقيت</span></a>
-      <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#year"><span class="en">Year</span><span class="ar">العام</span></a>
       <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#signs"><span class="en">Signs</span><span class="ar">العلامات</span></a>
+      <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#times"><span class="en">Timeline</span><span class="ar">المواقيت</span></a>
+      <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#year"><span class="en">Year</span><span class="ar">العام</span></a>
       <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#rules"><span class="en">Rulings</span><span class="ar">الأحكام</span></a>
       <a class="sk-btn sk-btn--ghost sk-btn--sm sk-hide-md" href="#how"><span class="en">How to pray</span><span class="ar">صفة الصلاة</span></a>
       <button class="sk-btn sk-btn--ghost sk-btn--sm fs-lang" id="langBtn" type="button">العربية</button>
       <a class="sk-btn sk-btn--line sk-btn--sm sk-projects" href="https://husseinbenz.github.io/islamic-projects/" aria-label="All Islamic projects">
-        <span class="sk-constellation" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="sk-hide-sm"><span class="en">All projects</span><span class="ar">كل المشاريع</span></span></a>
+        <span class="sk-constellation" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="sk-hide-sm"><span class="en">All projects</span><span class="ar">كل المشاريع</span></span></a>
       <button class="sk-icon-btn sk-theme-btn" type="button" data-sk-theme-toggle aria-label="Switch to night theme">
         <svg class="sk-i-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
         <svg class="sk-i-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -62,73 +62,18 @@
   </div>
 </section>
 
-<!-- TIMINGS -->
-<section id="times" class="fs-section"><div class="sk-container">
-  <div class="sec-head reveal">
-    <div class="kicker"><span class="en">Awqāt al-Ṣalāt</span><span class="ar">مواقيت الصلاة</span></div>
-    <h2><span class="en">The Timeline of the Five Prayers</span><span class="ar">الخريطة الزمنية للصلوات الخمس</span></h2>
-    <p><span class="en">Choose a madhhab. Each bar shows how that school divides a prayer's window — the virtuous, chosen, permissible, disliked and necessity-only portions. Hover any bar for details; press play to watch a day unfold.</span><span class="ar">اختر المذهب، ويُظهر كل شريط كيف يقسّم المذهب وقت الصلاة: وقت الفضيلة، والاختيار، والجواز، والكراهة، والضرورة. مرّر المؤشر على أي شريط للتفصيل، واضغط تشغيل لترى اليوم يجري أمامك.</span></p>
-  </div>
-
-  <div class="madhahib" id="madhahib"></div>
-  <div class="legend" id="legend"></div>
-
-  <div class="card timeline reveal">
-    <div class="gantt-scroll">
-      <div class="gantt" id="gantt">
-        <div class="g-row sky-row">
-          <div class="g-label"><span class="en">Sky</span><span class="ar">السماء</span><small class="en">sample day</small><small class="ar">يوم نموذجي</small></div>
-          <div class="sky" id="sky"><div class="starfield" id="stars"></div><div class="sun" id="sun"></div><div class="moon" id="moon"></div></div>
-        </div>
-        <div id="rows"></div>
-        <div class="axis" id="axis"></div>
-        <div class="overlay" id="overlay"><div class="playhead" id="playhead" data-t="12:00"></div></div>
-      </div>
-    </div>
-    <div class="controls">
-      <button class="sk-btn sk-btn--accent play-btn" id="playBtn" type="button" aria-pressed="false"><svg class="i-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg><svg class="i-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><span class="en">Play day</span><span class="ar">تشغيل</span></button>
-      <input type="range" id="scrub" min="210" max="1710" step="1" value="780" aria-label="Move through the day">
-      <div class="speed" id="speed"><button data-s="0.5">½×</button><button data-s="1" class="on">1×</button><button data-s="2">2×</button></div>
-    </div>
-    <div class="status" id="status"></div>
-  </div>
-  <p class="fine-print">
-    <span class="en">The bars show how each school orders and divides the prayer windows through one day — not clock times, which move through the year and differ by place. For real times, see the yearly chart below.</span>
-    <span class="ar">تُظهر الأشرطة كيف يرتّب كل مذهب أوقات الصلوات ويقسّمها خلال يوم واحد، لا الساعات؛ فالساعات تتغيّر على مدار العام وتختلف باختلاف المكان. وللأوقات الفعلية انظر الرسم السنوي أدناه.</span>
-  </p>
-</div></section>
-
-<!-- THROUGH THE YEAR -->
-<section id="year" class="fs-section"><div class="sk-container">
-  <div class="sec-head reveal">
-    <div class="kicker"><span class="en">Through the year</span><span class="ar">على مدار العام</span></div>
-    <h2><span class="en">The Five Prayers Across 365 Days</span><span class="ar">الصلوات الخمس على مدار ٣٦٥ يومًا</span></h2>
-    <p><span class="en">Choose a country. Each line is one prayer's start time on every day of this year, calculated from the sun's position for the city shown. Steps in the lines are daylight-saving changes; ʿAṣr follows the madhhab chosen above.</span><span class="ar">اختر البلد. يمثّل كل خط وقت دخول صلاة في كل يوم من أيام هذا العام، محسوبًا من موقع الشمس للمدينة المختارة. والقفزات في الخطوط تغييرات التوقيت الصيفي، ويتبع العصر المذهبَ المختار أعلاه.</span></p>
-  </div>
-  <div class="card year-card reveal">
-    <div class="year-controls">
-      <label class="year-select"><span class="en">Country</span><span class="ar">البلد</span>
-        <select id="yearCountry"></select></label>
-      <button class="sk-btn sk-btn--line sk-btn--sm" id="yearLocate" type="button">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span class="en">Use my location</span><span class="ar">استخدم موقعي</span></button>
-    </div>
-    <div class="year-legend" id="yearLegend" role="group" aria-label="Lines"></div>
-    <div class="year-chart" id="yearChart">
-      <svg id="yearSvg" viewBox="0 0 1000 520" role="img" aria-label="Prayer times through the year"></svg>
-      <div class="year-tip" id="yearTip" hidden></div>
-    </div>
-    <p class="year-meta" id="yearMeta"></p>
-  </div>
-  <p class="fine-print"><span class="en">Calculated with standard astronomical formulas (solar declination and the equation of time) for the city listed, using its common local method. Your masjid's timetable may differ by a few minutes; at high latitudes Fajr and ʿIshāʾ use the angle-based approximation.</span><span class="ar">محسوبة بالمعادلات الفلكية المعتادة (ميل الشمس ومعادلة الزمن) للمدينة المذكورة وبالطريقة المعتمدة فيها غالبًا. وقد يختلف تقويم مسجدك ببضع دقائق، وفي العروض العليا يُقدَّر الفجر والعشاء بطريقة الزاوية.</span></p>
-</div></section>
+<!-- ONE MADHHAB FOR THE WHOLE PAGE -->
+<section class="sk-container mz-band reveal" aria-labelledby="mzTitle">
+  <p class="mz-q" id="mzTitle"><span class="en">Read the page by the school you follow</span><span class="ar">اقرأ الصفحة على المذهب الذي تتّبعه</span></p>
+  <div class="madhahib" id="madhahib" role="radiogroup" aria-labelledby="mzTitle"></div>
+</section>
 
 <!-- SIGNS -->
 <section id="signs" class="fs-section"><div class="sk-container">
   <div class="sec-head reveal">
-    <div class="kicker"><span class="en">ʿAlāmāt al-Dukhūl</span><span class="ar">علامات دخول الوقت</span></div>
+    <div class="kicker"><b class="kn">01</b><span class="en">ʿAlāmāt al-Dukhūl</span><span class="ar">علامات دخول الوقت</span></div>
     <h2><span class="en">How Do You Know the Time Has Entered?</span><span class="ar">كيف تعرف أن الوقت قد دخل؟</span></h2>
-    <p><span class="en">The Lawgiver tied each prayer to a visible sign in the sky. The note on each card changes with the madhhab you select above.</span><span class="ar">ربط الشارع كل صلاة بعلامة ظاهرة في السماء، وتتغير الملاحظة في كل بطاقة بحسب المذهب المختار أعلاه.</span></p>
+    <p><span class="en">The Lawgiver tied each prayer to a visible sign in the sky. The note on each card follows the madhhab chosen above.</span><span class="ar">ربط الشارع كل صلاة بعلامة ظاهرة في السماء، وتتبع الملاحظة في كل بطاقة المذهبَ المختار أعلاه.</span></p>
   </div>
   <div class="grid g5" id="signCards"></div>
 
@@ -181,10 +126,77 @@
   </div>
 </div></section>
 
+<!-- TIMINGS -->
+<section id="times" class="fs-section"><div class="sk-container">
+  <div class="sec-head reveal">
+    <div class="kicker"><b class="kn">02</b><span class="en">Awqāt al-Ṣalāt</span><span class="ar">مواقيت الصلاة</span></div>
+    <h2><span class="en">How Each School Divides the Day</span><span class="ar">كيف يقسّم كل مذهب اليوم</span></h2>
+    <p><span class="en">Each bar is a prayer's window, divided by the school into virtuous, chosen, permissible, disliked and necessity-only time. Drag across the chart or press play — or switch to <b>All four</b> to line the schools up for one prayer.</span><span class="ar">كل شريط هو وقت صلاة، يقسّمه المذهب إلى وقت فضيلة واختيار وجواز وكراهة وضرورة. اسحب على المخطط أو اضغط تشغيل، أو انتقل إلى <b>المذاهب الأربعة</b> لتراها جنبًا إلى جنب في صلاة واحدة.</span></p>
+  </div>
+
+  <div class="card tl-card reveal" id="tlCard">
+    <div class="tl-top">
+      <div class="seg-ctl" id="tlView" role="radiogroup" aria-label="View">
+        <button type="button" role="radio" data-v="day"><span class="en">One school</span><span class="ar">مذهب واحد</span></button>
+        <button type="button" role="radio" data-v="cmp"><span class="en">All four</span><span class="ar">المذاهب الأربعة</span></button>
+        <span class="seg-ind" aria-hidden="true"></span>
+      </div>
+      <div class="seg-ctl" id="tlPick" role="radiogroup"></div>
+    </div>
+    <div class="tl-scroll">
+      <div class="tl" id="tl">
+        <div class="tl-row tl-sky-row">
+          <div class="tl-label"><span class="en">Sky</span><span class="ar">السماء</span><small class="en">a sample day</small><small class="ar">يوم نموذجي</small></div>
+          <div class="tl-sky" id="tlSky"><div class="tl-stars" id="tlStars"></div><svg class="tl-arc" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="92" x2="1000" y2="92"/><path id="tlArc"/></svg><div class="tl-sun" id="tlSun"></div><div class="tl-moon" id="tlMoon"></div></div>
+        </div>
+        <div class="tl-row tl-ev-row"><div class="tl-label"></div><div class="tl-events" id="tlEvents"></div></div>
+        <div class="tl-rows" id="tlRows"></div>
+        <div class="tl-plot" aria-hidden="true"><div class="tl-cursor" id="tlCursor"><b id="tlCursorLab"></b></div></div>
+      </div>
+    </div>
+    <div class="tl-controls">
+      <button class="tl-play" id="playBtn" type="button" aria-pressed="false" aria-label="Play"><svg class="i-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg><svg class="i-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></button>
+      <input class="tl-range" type="range" id="scrub" min="210" max="1710" step="1" value="780" aria-label="Move through the day">
+      <div class="seg-ctl seg-ctl--sm" id="speed" role="radiogroup" aria-label="Speed"><button type="button" role="radio" data-s="0.5">½×</button><button type="button" role="radio" data-s="1">1×</button><button type="button" role="radio" data-s="2">2×</button><span class="seg-ind" aria-hidden="true"></span></div>
+    </div>
+    <div class="tl-legend" id="legend" role="group" aria-label="Kinds of time"></div>
+    <div class="tl-now" id="status" aria-live="polite"></div>
+  </div>
+  <p class="fine-print">
+    <span class="en">The bars show how each school orders and divides the prayer windows through one day — not clock times, which move through the year and differ by place. For real times, see the yearly chart below.</span>
+    <span class="ar">تُظهر الأشرطة كيف يرتّب كل مذهب أوقات الصلوات ويقسّمها خلال يوم واحد، لا الساعات؛ فالساعات تتغيّر على مدار العام وتختلف باختلاف المكان. وللأوقات الفعلية انظر الرسم السنوي أدناه.</span>
+  </p>
+</div></section>
+
+<!-- THROUGH THE YEAR -->
+<section id="year" class="fs-section"><div class="sk-container">
+  <div class="sec-head reveal">
+    <div class="kicker"><b class="kn">03</b><span class="en">Through the year</span><span class="ar">على مدار العام</span></div>
+    <h2><span class="en">The Five Prayers Across 365 Days</span><span class="ar">الصلوات الخمس على مدار ٣٦٥ يومًا</span></h2>
+    <p><span class="en">Choose a country. Each line is one prayer's start time on every day of this year, calculated from the sun's position for the city shown. Steps in the lines are daylight-saving changes; ʿAṣr follows the madhhab chosen above.</span><span class="ar">اختر البلد. يمثّل كل خط وقت دخول صلاة في كل يوم من أيام هذا العام، محسوبًا من موقع الشمس للمدينة المختارة. والقفزات في الخطوط تغييرات التوقيت الصيفي، ويتبع العصر المذهبَ المختار أعلاه.</span></p>
+  </div>
+  <div class="card year-card reveal">
+    <div class="year-controls">
+      <label class="year-select"><span class="en">Country</span><span class="ar">البلد</span>
+        <select id="yearCountry"></select></label>
+      <button class="sk-btn sk-btn--line sk-btn--sm" id="yearLocate" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="en">Use my location</span><span class="ar">استخدم موقعي</span></button>
+    </div>
+    <div class="year-legend" id="yearLegend" role="group" aria-label="Lines"></div>
+    <div class="year-chart" id="yearChart">
+      <svg id="yearSvg" viewBox="0 0 1000 520" role="img" aria-label="Prayer times through the year"></svg>
+      <div class="year-tip" id="yearTip" hidden></div>
+    </div>
+    <p class="year-meta" id="yearMeta"></p>
+  </div>
+  <p class="fine-print"><span class="en">Calculated with standard astronomical formulas (solar declination and the equation of time) for the city listed, using its common local method. Your masjid's timetable may differ by a few minutes; at high latitudes Fajr and ʿIshāʾ use the angle-based approximation.</span><span class="ar">محسوبة بالمعادلات الفلكية المعتادة (ميل الشمس ومعادلة الزمن) للمدينة المذكورة وبالطريقة المعتمدة فيها غالبًا. وقد يختلف تقويم مسجدك ببضع دقائق، وفي العروض العليا يُقدَّر الفجر والعشاء بطريقة الزاوية.</span></p>
+</div></section>
+
 <!-- RULES -->
 <section id="rules" class="fs-section"><div class="sk-container">
   <div class="sec-head reveal">
-    <div class="kicker"><span class="en">Aḥkām</span><span class="ar">أحكام</span></div>
+    <div class="kicker"><b class="kn">04</b><span class="en">Aḥkām</span><span class="ar">أحكام</span></div>
     <h2><span class="en">Rulings Related to Time</span><span class="ar">أحكام متعلقة بالوقت</span></h2>
   </div>
 
@@ -242,14 +254,14 @@
 <!-- HOW -->
 <section id="how" class="fs-section"><div class="sk-container">
   <div class="sec-head reveal">
-    <div class="kicker"><span class="en">Ṣifat al-Ṣalāt</span><span class="ar">صفة الصلاة</span></div>
+    <div class="kicker"><b class="kn">05</b><span class="en">Ṣifat al-Ṣalāt</span><span class="ar">صفة الصلاة</span></div>
     <h2><span class="en">How the Prayer Is Performed</span><span class="ar">كيف تُؤدّى الصلاة</span></h2>
-    <p><span class="en">The shared core of one rakʿah, with key differences between the schools noted.</span><span class="ar">الهيئة المشتركة للركعة الواحدة، مع التنبيه على أهم الفروق بين المذاهب.</span></p>
+    <p><span class="en">What must be in place before you begin, one rakʿah position by position, and what makes the prayer valid or breaks it — with the key differences between the schools.</span><span class="ar">ما يلزم قبل الشروع، ثم الركعة هيئةً هيئة، ثم ما تقوم به الصلاة وما يبطلها، مع أهم الفروق بين المذاهب.</span></p>
   </div>
-  <div class="steps" id="steps"></div>
 
-  <div class="grid g3" style="margin-top:26px">
+  <div class="how-top">
     <div class="card list-card reveal">
+      <div class="how-step"><span class="kn">1</span><span class="en">Before you begin</span><span class="ar">قبل أن تبدأ</span></div>
       <h3><span class="en">Conditions (Shurūṭ)</span><span class="ar">شروط الصلاة</span></h3>
       <ol>
         <li><span class="en">Islam, sanity and discernment</span><span class="ar">الإسلام والعقل والتمييز</span></li>
@@ -261,7 +273,22 @@
         <li><span class="en">Intention (a condition for Ḥanafīs & Ḥanbalīs; a pillar for Mālikīs & Shāfiʿīs)</span><span class="ar">النية (شرط عند الحنفية والحنابلة، وركن عند المالكية والشافعية)</span></li>
       </ol>
     </div>
+    <div class="card rk-card reveal">
+      <div class="how-step"><span class="kn">2</span><span class="en">One rakʿah in motion</span><span class="ar">الركعة في حركة</span></div>
+      <div class="rk-stage"><svg class="rk-fig" id="rkFig" viewBox="0 0 120 100" role="img" aria-label="A figure performing one rakʿah"></svg></div>
+      <div class="rk-now">
+        <div><b id="rkName"></b><span class="rk-dh" id="rkDh" lang="ar"></span></div>
+        <button class="tl-play" id="rkPlay" type="button" aria-pressed="false" aria-label="Play"><svg class="i-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg><svg class="i-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></button>
+      </div>
+      <div class="rk-dots" id="rkDots"></div>
+    </div>
+  </div>
+
+  <div class="steps" id="steps"></div>
+
+  <div class="how-rules">
     <div class="card list-card reveal">
+      <div class="how-step"><span class="kn">3</span><span class="en">What the prayer rests on</span><span class="ar">ما تقوم به الصلاة</span></div>
       <h3><span class="en">Pillars (Arkān)</span><span class="ar">أركان الصلاة</span></h3>
       <ol>
         <li><span class="en">Opening takbīr</span><span class="ar">تكبيرة الإحرام</span></li>
@@ -276,6 +303,7 @@
       </ol>
     </div>
     <div class="card list-card reveal">
+      <div class="how-step"><span class="kn">4</span><span class="en">What breaks it</span><span class="ar">ما يبطلها</span></div>
       <h3><span class="en">Invalidators (Mubṭilāt)</span><span class="ar">مبطلات الصلاة</span></h3>
       <ul>
         <li><span class="en">Breaking wuḍūʾ</span><span class="ar">انتقاض الطهارة</span></li>
@@ -290,7 +318,8 @@
     </div>
   </div>
 
-  <div class="card reveal" style="margin-top:22px">
+  <div class="card five-card reveal">
+    <h3><span class="en">The five daily prayers</span><span class="ar">الصلوات الخمس</span></h3>
     <div class="table-wrap"><table>
       <tr><th><span class="en">Prayer</span><span class="ar">الصلاة</span></th><th><span class="en">Farḍ rakʿahs</span><span class="ar">ركعات الفرض</span></th><th><span class="en">Recitation</span><span class="ar">القراءة</span></th><th><span class="en">Confirmed sunnah</span><span class="ar">السنن الرواتب</span></th></tr>
       <tr><td>الفجر · Fajr</td><td>2</td><td><span class="en">Aloud</span><span class="ar">جهرية</span></td><td><span class="en">2 before (the most emphasised)</span><span class="ar">ركعتان قبلها (آكد الرواتب)</span></td></tr>
@@ -316,16 +345,21 @@
 
 <div id="tip"></div>
 
-<script src="js/sakina.js?v=sk3"></script>
-<script src="js/year.js?v=sk3"></script>
+<script src="js/sakina.js?v=sk4"></script>
+<script src="js/year.js?v=sk4"></script>
+<script src="js/figures.js?v=sk4"></script>
 <script>
 /* ---------- state ---------- */
 let lang='en', mz='hanafi';
 try{ lang=localStorage.getItem('sakina-lang')||localStorage.getItem('fs-lang')||'en'; mz=localStorage.getItem('fs-mz')||'hanafi'; }catch(e){}
 const L=o=>o?(o[lang]??o.en):'';
-const START=210, END=1710, SPAN=END-START;
-const pct=m=>((m-START)/SPAN*100);
+const T2=(en,ar)=>lang==='ar'?ar:en;
+const START=210, END=1710;
+let D0=START, D1=END, view='day', cmpPrayer='asr', focus=null;
+const pct=m=>((m-D0)/(D1-D0)*100);
 const fmt=m=>{m=((Math.round(m)%1440)+1440)%1440;return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')};
+const num=v=>window.Sakina?Sakina.num(v):String(v);
+const reduced=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
 
 /* ---------- sample day (minutes from midnight) ---------- */
 const T={fajr:270,isfar:335,sunrise:360,ishraq:375,istiwa:712,zawal:720,s1:920,s2:970,yellow:1060,sunset:1090,red:1165,white:1180,third:1297,half:1400,fajr2:1710};
@@ -410,125 +444,219 @@ const SIGNS={
   m:{hanafi:n('Ends when the white twilight disappears (Abū Ḥanīfa).','ينتهي بمغيب الشفق الأبيض عند أبي حنيفة.'),maliki:n('A single narrow chosen time; necessity time until dawn.','وقت اختياري واحد مضيَّق، وضروريها إلى الفجر.'),shafii:n('New school: narrow; old school (al-Nawawī): until red twilight.','الجديد: مضيَّق، والقديم الذي اختاره النووي: إلى مغيب الأحمر.'),hanbali:n('Until the red twilight disappears.','إلى مغيب الشفق الأحمر.')}},
  isha:{g:'ش',start:n('Disappearance of the red twilight.','مغيب الشفق الأحمر.'),end:n('True dawn.','طلوع الفجر الصادق.'),
   m:{hanafi:n('Enters after the white twilight vanishes; delaying to ⅓ night is recommended.','يدخل بمغيب الأبيض، ويستحب تأخيرها إلى ثلث الليل.'),maliki:n('Chosen until end of the first third; necessity until dawn.','الاختياري إلى ثلث الليل الأول، والضروري إلى الفجر.'),shafii:n('Chosen until ⅓ (or ½); permissible until dawn.','الاختيار إلى الثلث أو النصف، والجواز إلى الفجر.'),hanbali:n('Chosen until ⅓ (or ½); necessity until dawn.','الاختياري إلى الثلث أو النصف، والضروري إلى الفجر.')}}};
+if(!MZ[mz]) mz='hanafi';
+const PRAYERS=['fajr','dhuhr','asr','maghrib','isha','witr'];
 
-/* ---------- steps ---------- */
-const P={
- takbir:'<circle cx="30" cy="12" r="6"/><path d="M30 20 V48 M30 48 L24 76 M30 48 L36 76 M30 26 L20 22 L18 10 M30 26 L40 22 L42 10"/><path class="gr" d="M6 78 H54"/>',
- stand:'<circle cx="30" cy="12" r="6"/><path d="M30 20 V48 M30 48 L24 76 M30 48 L36 76 M30 26 L38 34 L28 36 M30 26 L24 34 L34 36"/><path class="gr" d="M6 78 H54"/>',
- ruku:'<circle cx="50" cy="32" r="6"/><path d="M44 36 H20 M20 36 L20 76 M20 36 L24 76 M40 36 L42 58 M34 36 L36 58"/><path class="gr" d="M6 78 H58"/>',
- itidal:'<circle cx="30" cy="12" r="6"/><path d="M30 20 V48 M30 48 L24 76 M30 48 L36 76 M30 26 L26 46 M30 26 L34 46"/><path class="gr" d="M6 78 H54"/>',
- sujud:'<circle cx="50" cy="70" r="6"/><path d="M44 66 L22 50 L20 74 M22 50 L10 74 M40 62 L46 76 M36 60 L40 76"/><path class="gr" d="M4 78 H58"/>',
- jalsa:'<circle cx="30" cy="30" r="6"/><path d="M30 38 V62 M30 62 H46 L46 74 M30 62 L16 74 H46 M30 44 L42 58 M30 44 L40 60"/><path class="gr" d="M6 78 H54"/>',
- salam:'<circle cx="32" cy="30" r="6"/><path d="M30 38 V62 M30 62 H46 L46 74 M30 62 L16 74 H46 M30 44 L42 58 M40 24 L52 20 M50 16 L52 20 L48 23"/><path class="gr" d="M6 78 H54"/>'};
+/* ---------- the positions of the prayer ---------- */
 const STEPS=[
- ['takbir',n('Intention & Takbīr','النية وتكبيرة الإحرام'),n('Intend the specific prayer in the heart, raise the hands and enter the prayer.','انوِ الصلاة المعينة بقلبك، وارفع يديك وادخل في الصلاة.'),'اللهُ أَكْبَر'],
- ['stand',n('Standing & Recitation','القيام والقراءة'),n('Recite al-Fātiḥah then a surah. Right hand over left (Mālikīs: arms at the sides — sadl).','اقرأ الفاتحة ثم سورة، مع وضع اليمنى على اليسرى (والمالكية: السدل).'),'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِين'],
- ['ruku',n('Bowing (Rukūʿ)','الركوع'),n('Bow with a straight back, hands on knees, and be still.','انحنِ مستوي الظهر، واضعًا يديك على ركبتيك مطمئنًا.'),'سُبْحَانَ رَبِّيَ الْعَظِيم'],
- ['itidal',n('Rising (Iʿtidāl)','الرفع والاعتدال'),n('Rise upright and stand still. Shāfiʿīs recite qunūt here in Fajr\'s second rakʿah.','ارفع واعتدل قائمًا، ويقنت الشافعية هنا في ثانية الفجر.'),'سَمِعَ اللهُ لِمَنْ حَمِدَه · رَبَّنَا وَلَكَ الْحَمْد'],
- ['sujud',n('Prostration (Sujūd)','السجود'),n('On seven bones: forehead & nose, both hands, both knees, both feet.','على الأعضاء السبعة: الجبهة مع الأنف، واليدين، والركبتين، وأطراف القدمين.'),'سُبْحَانَ رَبِّيَ الْأَعْلَى'],
- ['jalsa',n('Sitting between','الجلسة بين السجدتين'),n('Sit still, then perform the second prostration, then rise for the next rakʿah.','اجلس مطمئنًا، ثم اسجد الثانية، ثم انهض للركعة التالية.'),'رَبِّ اغْفِرْ لِي'],
- ['jalsa',n('Tashahhud','التشهد'),n('After the 2nd rakʿah and in the last; in the final one add the Ibrāhīmī ṣalawāt.','بعد الركعة الثانية وفي الأخيرة، ويُزاد في الأخير الصلاة الإبراهيمية.'),'التَّحِيَّاتُ لِلَّهِ…'],
- ['salam',n('Taslīm','التسليم'),n('Turn right then left. Mālikīs: one taslīm to the front, turning slightly right.','التفت يمينًا ثم يسارًا، والمالكية: تسليمة واحدة تلقاء الوجه يتيامن بها قليلًا.'),'السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ الله']];
+ ['takbir',n('Intention & Takbīr','النية وتكبيرة الإحرام'),n('Intend the specific prayer in the heart, then say Allāhu akbar, raising the hands — to the ears (Ḥanafī) or the shoulders (the other schools) — palms towards the qiblah.','انوِ الصلاة المعيّنة بقلبك، ثم كبّر رافعًا يديك حذو أذنيك (الحنفية) أو حذو منكبيك (الجمهور)، وباطن كفّيك إلى القبلة.'),'اللهُ أَكْبَر'],
+ ['qiyam',n('Standing & Recitation','القيام والقراءة'),n('Recite al-Fātiḥah, then a surah, eyes on the place of prostration. Right hand over left — below the navel (Ḥanafī, Ḥanbalī) or below the chest (Shāfiʿī); Mālikīs let the arms hang (sadl).','اقرأ الفاتحة ثم سورة، ناظرًا إلى موضع سجودك، واضعًا اليمنى على اليسرى تحت السرة (الحنفية والحنابلة) أو تحت الصدر (الشافعية)، ويُرسل المالكية أيديهم (السدل).'),'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِين'],
+ ['ruku',n('Bowing (Rukūʿ)','الركوع'),n('Bow until the back is level, the head in line with it, hands grasping the knees — and be still.','انحنِ حتى يستوي ظهرك ورأسُك بحياله، قابضًا ركبتيك بيديك، مطمئنًا.'),'سُبْحَانَ رَبِّيَ الْعَظِيم'],
+ ['itidal',n('Rising (Iʿtidāl)','الرفع والاعتدال'),n('Rise upright and stand still. Shāfiʿīs recite qunūt here in the second rakʿah of Fajr.','ارفع واعتدل قائمًا مطمئنًا، ويقنت الشافعية هنا في ثانية الفجر.'),'سَمِعَ اللهُ لِمَنْ حَمِدَه · رَبَّنَا وَلَكَ الْحَمْد'],
+ ['sujud',n('Prostration (Sujūd)','السجود'),n('On seven bones: forehead with nose, both palms, both knees and the toes of both feet — elbows raised and away from the sides.','على الأعضاء السبعة: الجبهة مع الأنف، والكفّين، والركبتين، وأطراف القدمين، مجافيًا عضديك عن جنبيك.'),'سُبْحَانَ رَبِّيَ الْأَعْلَى'],
+ ['jalsa',n('Sitting between','الجلسة بين السجدتين'),n('Sit on the left foot with the right foot upright (iftirāsh; Mālikīs sit in tawarruk), hands on the thighs; then the second prostration.','اجلس مفترشًا: على قدمك اليسرى ناصبًا اليمنى (والمالكية يتورّكون)، ويداك على فخذيك، ثم اسجد الثانية.'),'رَبِّ اغْفِرْ لِي'],
+ ['tashahhud',n('Tashahhud','التشهد'),n('After the second rakʿah and in the last, pointing with the right index finger. In the last sitting add the Ibrāhīmī ṣalawāt; most schools sit in tawarruk there (Ḥanafīs: iftirāsh throughout).','بعد الركعة الثانية وفي الأخيرة، مشيرًا بالسبابة اليمنى، ويُزاد في الأخير الصلاة الإبراهيمية، ويتورّك فيه الجمهور (والحنفية يفترشون في الجلوس كله).'),'التَّحِيَّاتُ لِلَّهِ…'],
+ ['salam',n('Taslīm','التسليم'),n('Turn the face to the right, then to the left. Mālikīs: one taslīm to the front, turning slightly right.','التفت بوجهك يمينًا ثم يسارًا، والمالكية: تسليمة واحدة تلقاء الوجه يتيامن بها قليلًا.'),'السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ الله']];
+// one rakʿah, then the final sitting: the knees reach the ground before the forehead
+const RAKAH=[{pose:'takbir',step:0,hold:1400},{pose:'qiyam',step:1,hold:1900},{pose:'ruku',step:2,hold:1600},{pose:'itidal',step:3,hold:1200},
+ {pose:'kneel',step:4,hold:0,move:720},{pose:'sujud',step:4,hold:1600,move:680},{pose:'jalsa',step:5,hold:1300},{pose:'sujud',step:4,hold:1600},
+ {pose:'tashahhud',step:6,hold:2000},{pose:'salam',step:7,hold:2100,move:520}];
 
 /* ---------- render ---------- */
 const $=id=>document.getElementById(id);
 function renderStatic(){
-  document.documentElement.lang=lang; document.documentElement.dir=lang==='ar'?'rtl':'ltr'; document.documentElement.dataset.lang=lang;
+  const h=document.documentElement;h.lang=lang;h.dir=lang==='ar'?'rtl':'ltr';h.dataset.lang=lang;
   $('langBtn').textContent=lang==='ar'?'English':'العربية';$('langBtn').setAttribute('lang',lang==='ar'?'en':'ar');
-  $('madhahib').innerHTML=Object.entries(MZ).map(([k,v])=>`<button class="mbtn ${k===mz?'on':''}" data-m="${k}"><b>${L(v)}</b><small>${L(v.by)}</small></button>`).join('');
-  $('legend').innerHTML=Object.entries(TYPES).map(([k,v])=>`<span><i class="sw t-${k}"></i>${L(v)}</span>`).join('');
-  $('steps').innerHTML=STEPS.map((s,i)=>`<div class="card step reveal in"><span class="n">${i+1}</span><svg viewBox="0 0 60 80">${P[s[0]]}</svg><h4>${L(s[1])}</h4><p>${L(s[2])}</p><div class="dh">${s[3]}</div></div>`).join('');
+  renderMadhahib(); renderSteps();
   const lbl={fdLabel1:n('False dawn (vertical)','الفجر الكاذب (مستطيل)'),fdLabel2:n('True dawn (horizontal)','الفجر الصادق (معترض)'),twLabel1:n('White twilight','الشفق الأبيض'),twLabel2:n('Red twilight','الشفق الأحمر')};
   for(const k in lbl) $(k).textContent=L(lbl[k]);
-  document.querySelectorAll('.mbtn').forEach(b=>b.onclick=()=>setMz(b.dataset.m));
-  renderAxis(); renderRows(); renderSigns(); update(t); drawShadow(sm);
+  document.querySelectorAll('#speed button').forEach(b=>b.setAttribute('aria-checked',String(+b.dataset.s===speed)));
+  $('playBtn').setAttribute('aria-label',playing?T2('Pause','إيقاف'):T2('Play','تشغيل'));
+  renderTimeline(); update(t); renderSigns(); drawShadow(sm);
+  if(rk){rk.rtl=lang==='ar';rk.redraw();onRkStep(rkStep)}
   if(window.YearChart) YearChart.render(lang,mz);
+  requestAnimationFrame(settle);
 }
-/* In Arabic the diagram reads right to left: labels on the right, the day flowing leftwards */
+function renderMadhahib(){
+  $('madhahib').innerHTML=Object.entries(MZ).map(([k,v])=>`<button type="button" role="radio" aria-checked="${k===mz}" class="mbtn${k===mz?' on':''}" data-m="${k}"><b>${L(v)}</b><small>${L(v.by)}</small></button>`).join('');
+  document.querySelectorAll('.mbtn').forEach(b=>b.onclick=()=>setMz(b.dataset.m));
+}
+function renderSigns(){
+  $('signCards').innerHTML=Object.entries(SIGNS).map(([k,v])=>`<div class="card pcard reveal in"><span class="glyph">${v.g}</span>
+    <h3>${L(ROWS[k])}<small>${L(MZ[mz])}</small></h3>
+    <div class="lbl">${T2('Begins','بداية الوقت')}</div><p>${L(v.start)}</p>
+    <div class="lbl">${T2('Ends','نهاية الوقت')}</div><p>${L(v.end)}</p>
+    <div class="note">${L(v.m[mz])}</div></div>`).join('');
+}
+function setMz(m){mz=m;try{localStorage.setItem('fs-mz',m)}catch(e){}
+  renderMadhahib();renderTimeline();update(t);renderSigns();if(window.YearChart) YearChart.render(lang,mz)}
+
+/* ---------- segmented controls: a sliding pill under the chosen option ---------- */
+function segCtl(el,items,cur,onPick){
+  el.innerHTML=items.map(([v,l])=>`<button type="button" role="radio" data-k="${v}" aria-checked="${v===cur}">${l}</button>`).join('')+'<span class="seg-ind" aria-hidden="true"></span>';
+  el.querySelectorAll('button').forEach(b=>b.onclick=()=>onPick(b.dataset.k));
+  moveInd(el);
+}
+function moveInd(el){
+  const on=el&&el.querySelector('[aria-checked="true"]'),ind=el&&el.querySelector('.seg-ind');
+  if(!on||!ind)return;ind.style.width=on.offsetWidth+'px';ind.style.transform=`translateX(${on.offsetLeft}px)`;
+}
+function settle(){['tlView','tlPick','speed'].forEach(id=>moveInd($(id)));laneEvents()}
+
+/* ---------- the timeline ---------- */
+/* In Arabic the chart reads right to left: labels on the right, the day flowing leftwards */
 const SIDE=()=>lang==='ar'?'right':'left';
 function place(el,p){el.style.left='';el.style.right='';el.style[SIDE()]=p+'%'}
-function renderAxis(){
-  $('axis').innerHTML='';
-  const ov=$('overlay'); ov.querySelectorAll('.vline,.evlabel').forEach(e=>e.remove());
-  EVENTS.forEach(([k,lab],i)=>{
-    const v=document.createElement('div');v.className='vline';place(v,pct(T[k]));ov.appendChild(v);
-    const e=document.createElement('div');e.className='evlabel'+(lang==='ar'?' ar':'');place(e,pct(T[k]));e.style.top=(2+(i%3)*19)+'px';
-    e.textContent=L(lab);ov.appendChild(e);
-  });
-  // sky gradient
-  const st=[[210,'var(--sky-n)'],[270,'var(--sky-n)'],[340,'var(--sky-t)'],[400,'var(--sky-d)'],[1050,'var(--sky-d)'],[1110,'var(--sky-t)'],[1180,'var(--sky-n)'],[1710,'var(--sky-n)']];
-  $('sky').style.background=`linear-gradient(${lang==='ar'?'270deg':'90deg'},${st.map(([m,c])=>c+' '+pct(m).toFixed(2)+'%').join(',')})`;
+function setDomain(){ // "All four" zooms in on the chosen prayer's window
+  if(view==='day'){D0=START;D1=END;return}
+  let a=Infinity,b=-Infinity;
+  for(const k in MZ)(DATA[k][cmpPrayer]||[]).forEach(([x,y])=>{a=Math.min(a,x);b=Math.max(b,y)});
+  const pad=(b-a)*.05;D0=Math.max(START,a-pad);D1=Math.min(END,b+pad);
 }
-function renderRows(){
-  const d=DATA[mz];
-  $('rows').innerHTML=Object.keys(ROWS).map(r=>`<div class="g-row"><div class="g-label">${L(ROWS[r])}<small>${L(ROWS[r].s)}</small></div><div class="g-track" data-r="${r}"></div></div>`).join('');
-  Object.keys(ROWS).forEach((r,ri)=>{
-    const tr=document.querySelector(`.g-track[data-r="${r}"]`);
-    (d[r]||[]).forEach(([a,b,ty,note],si)=>{
+function renderTimeline(){
+  setDomain();
+  const tl=$('tl');tl.dataset.view=view;
+  document.querySelectorAll('#tlView button').forEach(b=>b.setAttribute('aria-checked',String(b.dataset.v===view)));
+  moveInd($('tlView'));
+  if(view==='day') segCtl($('tlPick'),Object.keys(MZ).map(k=>[k,L(MZ[k])]),mz,setMz);
+  else segCtl($('tlPick'),PRAYERS.map(k=>[k,L(ROWS[k])]),cmpPrayer,k=>{cmpPrayer=k;renderTimeline();update(startOf())});
+  $('tlPick').setAttribute('aria-label',view==='day'?T2('Madhhab','المذهب'):T2('Prayer','الصلاة'));
+  // the sky: night, dawn, day, dusk — with the sun's path over the horizon
+  const st=[[210,'var(--sky-n)'],[270,'var(--sky-n)'],[340,'var(--sky-t)'],[400,'var(--sky-d)'],[1050,'var(--sky-d)'],[1110,'var(--sky-t)'],[1180,'var(--sky-n)'],[1710,'var(--sky-n)']];
+  $('tlSky').style.background=`linear-gradient(${lang==='ar'?'270deg':'90deg'},${st.map(([m,c])=>c+' '+pct(m).toFixed(2)+'%').join(',')})`;
+  let d='';for(let m=T.sunrise;m<=T.sunset;m+=5){const x=pct(m)*10,y=92-Math.sin((m-T.sunrise)/(T.sunset-T.sunrise)*Math.PI)*76;d+=(d?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}
+  $('tlArc').setAttribute('d',d);
+  // events along the top, and a hairline for each through the rows
+  const evs=EVENTS.filter(([k])=>T[k]>=D0&&T[k]<=D1);
+  $('tlEvents').innerHTML=evs.map(([k,lab])=>`<span class="ev" data-k="${k}"><i></i><b>${L(lab)}</b></span>`).join('');
+  $('tlEvents').querySelectorAll('.ev').forEach(e=>{const q=pct(T[e.dataset.k]);place(e,q);e.classList.toggle('ev--start',q<5);e.classList.toggle('ev--end',q>95)});
+  const keys=view==='day'?Object.keys(ROWS):Object.keys(MZ);
+  $('tlRows').innerHTML=keys.map(r=>{
+    const lab=view==='day'?`${L(ROWS[r])}<small>${L(ROWS[r].s)}</small>`:`${L(MZ[r])}<small>${L(MZ[r].by)}</small>`;
+    return `<div class="tl-row${view==='cmp'&&r===mz?' is-mine':''}"><div class="tl-label">${lab}</div><div class="tl-track" data-r="${r}"></div></div>`}).join('')
+    +'<div class="tl-vls">'+evs.map(([k])=>`<i data-k="${k}"></i>`).join('')+'</div>';
+  $('tlRows').querySelectorAll('.tl-vls i').forEach(v=>place(v,pct(T[v.dataset.k])));
+  keys.forEach((r,ri)=>{
+    const segs=view==='day'?(DATA[mz][r]||[]):(DATA[r][cmpPrayer]||[]);
+    const tr=$('tlRows').querySelector(`.tl-track[data-r="${r}"]`);
+    segs.forEach(([a,b,ty,note],si)=>{
       const s=document.createElement('div');s.className='seg t-'+ty;
-      place(s,pct(a));s.style.transitionDelay=(ri*80+si*60)+'ms';
       s.dataset.a=a;s.dataset.b=b;s.dataset.ty=ty;s.dataset.r=r;s._note=note;
+      place(s,pct(a));s.style.width='0%';s.style.transitionDelay=reduced?'0ms':(ri*55+si*40)+'ms';
       s.onmousemove=ev=>showTip(ev,s);s.onmouseleave=hideTip;
       tr.appendChild(s);
       requestAnimationFrame(()=>requestAnimationFrame(()=>{s.style.width=(pct(b)-pct(a))+'%'}));
     });
   });
-  hilite();
+  renderLegend();laneEvents();
 }
-function renderSigns(){
-  $('signCards').innerHTML=Object.entries(SIGNS).map(([k,v])=>`<div class="card pcard reveal in"><span class="glyph">${v.g}</span>
-    <h3>${L(ROWS[k])}<small>${L(MZ[mz])}</small></h3>
-    <div class="lbl">${lang==='ar'?'بداية الوقت':'Begins'}</div><p>${L(v.start)}</p>
-    <div class="lbl">${lang==='ar'?'نهاية الوقت':'Ends'}</div><p>${L(v.end)}</p>
-    <div class="note">${L(v.m[mz])}</div></div>`).join('');
+/* Event labels take the first of four lanes where they do not touch a neighbour */
+function laneEvents(){
+  const box=$('tlEvents');if(!box)return;
+  const els=[...box.querySelectorAll('.ev')];els.forEach(e=>e.style.setProperty('--lane',0));
+  const rtl=lang==='ar',ends=[-1e9,-1e9,-1e9,-1e9];let lanes=1;
+  els.map(e=>{const r=e.querySelector('b').getBoundingClientRect();return{e,a:rtl?-r.right:r.left,b:rtl?-r.left:r.right}})
+    .sort((x,y)=>x.a-y.a).forEach(it=>{let l=ends.findIndex(end=>it.a>end+8);if(l<0)l=ends.indexOf(Math.min(...ends));it.e.style.setProperty('--lane',l);ends[l]=it.b;lanes=Math.max(lanes,l+1)});
+  box.style.setProperty('--lanes',lanes);
 }
-function setMz(m){mz=m;try{localStorage.setItem('fs-mz',m)}catch(e){}
-  document.querySelectorAll('.mbtn').forEach(b=>b.classList.toggle('on',b.dataset.m===m));renderRows();renderSigns();update(t);if(window.YearChart) YearChart.render(lang,mz)}
+function renderLegend(){
+  const used=new Set([...document.querySelectorAll('#tlRows .seg')].map(s=>s.dataset.ty));
+  $('legend').innerHTML=Object.entries(TYPES).filter(([k])=>used.has(k)).map(([k,v])=>`<button type="button" class="lg" data-ty="${k}" aria-pressed="false"><i class="sw t-${k}"></i>${L(v)}</button>`).join('');
+  $('legend').querySelectorAll('.lg').forEach(b=>b.onclick=()=>{focus=focus===b.dataset.ty?null:b.dataset.ty;applyFocus()});
+  applyFocus();
+}
+function applyFocus(){ // tap a kind of time to see only that kind on the chart
+  if(focus&&!$('legend').querySelector(`[data-ty="${focus}"]`))focus=null;
+  if(focus)$('tl').dataset.focus=focus;else delete $('tl').dataset.focus;
+  $('legend').querySelectorAll('.lg').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.ty===focus)));
+}
+function startOf(){const s=(DATA[mz][cmpPrayer]||[])[0];return s?s[0]+Math.min(25,(s[1]-s[0])/3):D0}
 
 /* ---------- tooltip ---------- */
 const tip=$('tip');
 function showTip(ev,s){
-  const a=+s.dataset.a,b=+s.dataset.b,ty=TYPES[s.dataset.ty];
-  tip.innerHTML=`<b>${L(ROWS[s.dataset.r])}</b> · <span><i class="sw t-${s.dataset.ty}"></i> ${L(ty)}</span>${s._note?`<div class="tip-note">${L(s._note)}</div>`:''}`;
+  const ty=TYPES[s.dataset.ty],r=s.dataset.r,who=view==='day'?L(ROWS[r]):L(MZ[r])+' · '+L(ROWS[cmpPrayer]);
+  tip.innerHTML=`<b>${who}</b> · <span><i class="sw t-${s.dataset.ty}"></i> ${L(ty)}</span>${s._note?`<div class="tip-note">${L(s._note)}</div>`:''}`;
   tip.style.opacity=1;
   const x=lang==='ar'?Math.max(10,ev.clientX-14-tip.offsetWidth):Math.min(ev.clientX+14,innerWidth-330),y=Math.min(ev.clientY+14,innerHeight-tip.offsetHeight-10);
   tip.style.left=x+'px';tip.style.top=y+'px';
 }
 function hideTip(){tip.style.opacity=0}
 
-/* ---------- playhead ---------- */
-let t=780,playing=false,speed=1,last=0;
-function hilite(){
-  document.querySelectorAll('.seg').forEach(s=>s.classList.toggle('live',t>=+s.dataset.a&&t<+s.dataset.b));
-}
-function shadowAt(m){ // shadow length in object-heights
-  if(m<T.sunrise||m>T.sunset) return null;
-  const x=720+Math.abs(m-720);
-  const pts=[[720,.25],[T.s1,1.25],[T.s2,2.25],[T.yellow,5],[1080,14],[1090,40]];
-  for(let i=1;i<pts.length;i++) if(x<=pts[i][0]){const[a,va]=pts[i-1],[b,vb]=pts[i];return va+(vb-va)*(x-a)/(b-a)}
-  return 40;
-}
+/* ---------- the moment on the chart ---------- */
+let t=780,playing=false,speed=1,last=0,userPaused=false;
 function update(m){
-  t=m;$('scrub').value=m;
-  const p=pct(m);place($('playhead'),p);$('playhead').dataset.t=phaseAt(m);
-  // sun / moon
-  const day=m>=T.sunrise-10&&m<=T.sunset+10,frac=(m-T.sunrise)/(T.sunset-T.sunrise);
-  const sun=$('sun'),moon=$('moon');
-  place(sun,p);sun.style.top=(88-Math.sin(Math.max(0,Math.min(1,frac))*Math.PI)*70)+'%';sun.style.opacity=day?1:0;
-  place(moon,p);moon.style.top='30%';moon.style.opacity=day?0:1;$('stars').style.opacity=day?0:.7;
-  hilite();
-  // status
-  const d=DATA[mz];let out=[];
-  for(const r in ROWS){(d[r]||[]).forEach(([a,b,ty])=>{if(m>=a&&m<b)out.push(`<div class="st"><i class="dot sw t-${ty}"></i><div><b>${L(ROWS[r])}</b> — ${L(TYPES[ty])}</div></div>`)})}
-  const key=out.join('');
-  if($('status')._k!==key){$('status')._k=key;$('status').innerHTML=key||`<div class="st none">${lang==='ar'?'لا تدخل صلاة مفروضة في هذا الوقت (بين الشروق والزوال) — وقت الضحى':'No obligatory prayer is due now (between sunrise and zawāl) — the time of Ḍuḥā'}</div>`}
+  t=Math.max(D0,Math.min(D1,m));
+  const sc=$('scrub');sc.min=Math.floor(D0);sc.max=Math.ceil(D1);sc.value=Math.round(t);
+  sc.style.setProperty('--p',((t-D0)/(D1-D0)*100).toFixed(2)+'%');
+  const p=pct(t);
+  place($('tlCursor'),p);$('tlCursorLab').textContent=phaseAt(t);
+  const day=t>=T.sunrise-8&&t<=T.sunset+8,frac=(t-T.sunrise)/(T.sunset-T.sunrise);
+  const sun=$('tlSun'),moon=$('tlMoon');
+  place(sun,p);sun.style.top=(92-Math.sin(Math.max(0,Math.min(1,frac))*Math.PI)*76)+'%';sun.style.opacity=day?1:0;
+  place(moon,p);moon.style.opacity=day?0:1;$('tlStars').style.opacity=day?0:1;
+  document.querySelectorAll('#tlRows .seg').forEach(s=>s.classList.toggle('live',t>=+s.dataset.a&&t<+s.dataset.b));
+  renderNow();
 }
-/* The playhead names the part of the day instead of a clock time */
+function nowCard(title,ty,note,mine){return `<div class="nw${mine?' is-mine':''}"><i class="sw t-${ty}"></i><div><b>${title} · ${L(TYPES[ty])}</b>${note?`<small>${L(note)}</small>`:''}</div></div>`}
+function renderNow(){
+  const out=[];
+  if(view==='day'){for(const r in ROWS)(DATA[mz][r]||[]).forEach(([a,b,ty,note])=>{if(t>=a&&t<b)out.push(nowCard(L(ROWS[r]),ty,note))})}
+  else for(const k in MZ){const seg=(DATA[k][cmpPrayer]||[]).find(([a,b])=>t>=a&&t<b);
+    out.push(seg?nowCard(L(MZ[k]),seg[2],seg[3],k===mz):`<div class="nw is-off${k===mz?' is-mine':''}"><i class="sw"></i><div><b>${L(MZ[k])}</b><small>${T2('Outside the time of '+ROWS[cmpPrayer].en,'خارج وقت '+ROWS[cmpPrayer].ar)}</small></div></div>`)}
+  const html=out.join('')||`<div class="nw is-off"><i class="sw"></i><div><b>${T2('No obligatory prayer is due now','لا تجب صلاة مفروضة الآن')}</b><small>${T2('Between sunrise and zawāl — the time of Ḍuḥā.','بين الشروق والزوال — وقت الضحى.')}</small></div></div>`;
+  if($('status')._k!==html){$('status')._k=html;$('status').innerHTML=html}
+}
+/* The cursor names the part of the day instead of a clock time */
 function phaseAt(m){
   let cur=null;EVENTS.forEach(([k,lab])=>{if(T[k]<=m)cur=lab});
-  if(!cur||m>=T.fajr2)return lang==='ar'?'قبل الفجر':'Before dawn';
+  if(!cur||m>=T.fajr2)return T2('Before dawn','قبل الفجر');
   return L(cur);
 }
+function loop(ts){
+  if(!playing)return;
+  const dt=last?(ts-last):0;last=ts;
+  const rate=view==='day'?0.06:(D1-D0)/14000;
+  let m=t+dt*rate*speed;if(m>=D1)m=D0;
+  update(m);requestAnimationFrame(loop);
+}
+function setPlaying(on){playing=on;last=0;const b=$('playBtn');b.classList.toggle('is-playing',on);b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?T2('Pause','إيقاف'):T2('Play','تشغيل'));if(on)requestAnimationFrame(loop)}
+$('playBtn').onclick=()=>{userPaused=playing;setPlaying(!playing)};
+$('scrub').oninput=e=>update(+e.target.value);
+$('speed').querySelectorAll('button').forEach(b=>b.onclick=()=>{speed=+b.dataset.s;document.querySelectorAll('#speed button').forEach(x=>x.setAttribute('aria-checked',String(x===b)));moveInd($('speed'))});
+$('tlView').querySelectorAll('button').forEach(b=>b.onclick=()=>{if(view===b.dataset.v)return;view=b.dataset.v;renderTimeline();update(view==='day'?t:startOf())});
+/* Drag across the chart with a mouse; a tap moves the cursor on touch screens */
+(function(){
+  const tl=$('tl');let down=false,x0=0;
+  const at=ev=>{const r=tl.querySelector('.tl-vls').getBoundingClientRect();let f=(ev.clientX-r.left)/r.width;if(lang==='ar')f=1-f;return D0+Math.max(0,Math.min(1,f))*(D1-D0)};
+  const grab=()=>{if(playing){userPaused=true;setPlaying(false)}};
+  tl.addEventListener('pointerdown',ev=>{if(ev.button)return;down=true;x0=ev.clientX;if(ev.pointerType==='mouse'){tl.setPointerCapture(ev.pointerId);grab();update(at(ev))}});
+  tl.addEventListener('pointermove',ev=>{if(down&&ev.pointerType==='mouse')update(at(ev))});
+  tl.addEventListener('pointerup',ev=>{if(down&&ev.pointerType!=='mouse'&&Math.abs(ev.clientX-x0)<8){grab();update(at(ev))}down=false});
+  tl.addEventListener('pointercancel',()=>{down=false});
+})();
+
+/* ---------- how to pray: the step cards and the moving figure ---------- */
+let rk=null,rkStep=0,rkUser=false;
+function renderSteps(){
+  const rtl=lang==='ar';
+  $('steps').innerHTML=STEPS.map((s,i)=>`<div class="card step reveal in" data-i="${i}" tabindex="0" role="button" aria-label="${L(s[1])}"><span class="n">${num(i+1)}</span><div class="step-fig"><svg viewBox="0 0 120 100" aria-hidden="true">${PrayerFigure.still(s[0],rtl)}</svg></div><h4>${L(s[1])}</h4><p>${L(s[2])}</p><div class="dh" lang="ar">${s[3]}</div></div>`).join('');
+  $('rkDots').innerHTML=STEPS.map((s,i)=>`<button type="button" data-i="${i}" aria-label="${L(s[1])}"></button>`).join('');
+  const pick=i=>{rkUser=true;setRkPlaying(false);rk.show(i)};
+  document.querySelectorAll('.step').forEach(c=>{c.onclick=()=>pick(+c.dataset.i);c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(+c.dataset.i)}}});
+  document.querySelectorAll('#rkDots button').forEach(b=>b.onclick=()=>pick(+b.dataset.i));
+}
+function onRkStep(k){
+  rkStep=k;const s=STEPS[k];$('rkName').textContent=L(s[1]);$('rkDh').textContent=s[3];
+  document.querySelectorAll('.step').forEach(c=>c.classList.toggle('on',+c.dataset.i===k));
+  document.querySelectorAll('#rkDots button').forEach(b=>b.classList.toggle('on',+b.dataset.i===k));
+}
+function setRkPlaying(on){
+  if(!rk)return;if(on)rk.play();else rk.pause();
+  const b=$('rkPlay');b.classList.toggle('is-playing',on);b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?T2('Pause','إيقاف'):T2('Play','تشغيل'));
+}
+$('rkPlay').onclick=()=>{const on=!rk.playing;rkUser=!on;setRkPlaying(on)};
+
 /* ---------- The shadow clock: a schoolbook drawing, ink only ---------- */
 const SH={lat:21.4225,stick:64,scale:64,cx:340,gy:214,R:170};
 const s0=Math.tan(SH.lat*Math.PI/180);                 // noon shadow, in stick lengths
@@ -591,15 +719,6 @@ function shSet(m){sm=m;$('shRange').value=m;drawShadow(m)}
 function shLoop(ts){if(!shPlaying)return;const dt=shLast?ts-shLast:0;shLast=ts;let m=sm+dt*0.05;if(m>1075)m=365;shSet(m);requestAnimationFrame(shLoop)}
 $('shRange').oninput=e=>shSet(+e.target.value);
 $('shPlay').onclick=()=>{shPlaying=!shPlaying;shLast=0;$('shPlay').classList.toggle('is-playing',shPlaying);$('shPlay').setAttribute('aria-pressed',String(shPlaying));$('shPlay').setAttribute('aria-label',shPlaying?(lang==='ar'?'إيقاف':'Pause'):(lang==='ar'?'شغّل النهار':'Play the day'));if(shPlaying)requestAnimationFrame(shLoop)};
-function loop(ts){
-  if(!playing)return;
-  const dt=last?(ts-last):0;last=ts;
-  let m=t+dt*0.06*speed; if(m>END)m=START;
-  update(m);requestAnimationFrame(loop);
-}
-$('playBtn').onclick=()=>{playing=!playing;last=0;$('playBtn').classList.toggle('is-playing',playing);$('playBtn').setAttribute('aria-pressed',String(playing));if(playing)requestAnimationFrame(loop)};
-$('scrub').oninput=e=>update(+e.target.value);
-$('speed').onclick=e=>{const b=e.target.closest('button');if(!b)return;speed=+b.dataset.s;[...$('speed').children].forEach(x=>x.classList.toggle('on',x===b))};
 $('langBtn').onclick=()=>{lang=lang==='ar'?'en':'ar';try{localStorage.setItem('fs-lang',lang);localStorage.setItem('sakina-lang',lang)}catch(e){};renderStatic()};
 
 /* reveal on scroll */
@@ -607,7 +726,12 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 renderStatic();
-if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)) setTimeout(()=>{ if(!playing) $('playBtn').click(); },1200);
+rk=PrayerFigure.Player($('rkFig'),RAKAH,onRkStep);rk.rtl=lang==='ar';rk.redraw();onRkStep(0);
+/* both animations run only while they are on screen, and never on their own for reduced motion */
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(!userPaused&&!reduced&&!playing)setPlaying(true)}else if(playing)setPlaying(false)}),{threshold:.35}).observe($('tlCard'));
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(!rkUser&&!reduced)setRkPlaying(true)}else setRkPlaying(false)}),{threshold:.4}).observe(document.querySelector('.rk-card'));
+let rsz=0;addEventListener('resize',()=>{clearTimeout(rsz);rsz=setTimeout(settle,120)});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(settle);
 </script>
 </body>
 </html>
