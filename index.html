@@ -10,9 +10,9 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235B7A1E' d='M23 12L19.78 15.22L19.78 19.78L15.22 19.78L12 23L8.78 19.78L4.22 19.78L4.22 15.22L1 12L4.22 8.78L4.22 4.22L8.78 4.22L12 1L15.22 4.22L19.78 4.22L19.78 8.78Z'/%3E%3Ccircle cx='12' cy='12' r='4.4' fill='%23F6F4EE'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/sakina.css?v=sk4">
-<link rel="stylesheet" href="css/style.css?v=sk4">
+<link rel="stylesheet" href="css/typography.css?v=fs5">
+<link rel="stylesheet" href="css/style.css?v=fs5">
 </head>
 <body class="sk-project-fiqh">
 <a class="sk-skip" href="#signs"><span class="en">Skip to the content</span><span class="ar">تخطَّ إلى المحتوى</span></a>
@@ -328,7 +328,7 @@
       <tr><td>المغرب · Maghrib</td><td>3</td><td><span class="en">Aloud in first two</span><span class="ar">جهر في الأوليين</span></td><td><span class="en">2 after</span><span class="ar">ركعتان بعدها</span></td></tr>
       <tr><td>العشاء · ʿIshāʾ</td><td>4</td><td><span class="en">Aloud in first two</span><span class="ar">جهر في الأوليين</span></td><td><span class="en">2 after, then Witr (wājib, 3 rakʿahs for Ḥanafīs; emphasised sunnah for others)</span><span class="ar">ركعتان بعدها ثم الوتر (واجب ثلاث ركعات عند الحنفية، وسنة مؤكدة عند غيرهم)</span></td></tr>
     </table></div>
-    <p style="font-size:.78rem;color:var(--text-3);margin-top:8px"><span class="en">Mālikīs do not fix specific rawātib counts, but emphasise the two rakʿahs of Fajr (raghībah) and Witr.</span><span class="ar">لا يحدد المالكية رواتب معينة العدد، ويؤكدون ركعتي الفجر (الرغيبة) والوتر.</span></p>
+    <p class="fine-note"><span class="en">Mālikīs do not fix specific rawātib counts, but emphasise the two rakʿahs of Fajr (raghībah) and Witr.</span><span class="ar">لا يحدد المالكية رواتب معينة العدد، ويؤكدون ركعتي الفجر (الرغيبة) والوتر.</span></p>
   </div>
 </div></section>
 
@@ -561,7 +561,7 @@ function laneEvents(){
 }
 function renderLegend(){
   const used=new Set([...document.querySelectorAll('#tlRows .seg')].map(s=>s.dataset.ty));
-  $('legend').innerHTML=Object.entries(TYPES).filter(([k])=>used.has(k)).map(([k,v])=>`<button type="button" class="lg" data-ty="${k}" aria-pressed="false"><i class="sw t-${k}"></i>${L(v)}</button>`).join('');
+  $('legend').innerHTML=`<span class="lg-scale"><i></i>${T2('Best time → last resort','الأفضل ← آخر الوقت')}</span>`+Object.entries(TYPES).filter(([k])=>used.has(k)).map(([k,v])=>`<button type="button" class="lg" data-ty="${k}" aria-pressed="false"><i class="sw t-${k}"></i>${L(v)}</button>`).join('');
   $('legend').querySelectorAll('.lg').forEach(b=>b.onclick=()=>{focus=focus===b.dataset.ty?null:b.dataset.ty;applyFocus()});
   applyFocus();
 }

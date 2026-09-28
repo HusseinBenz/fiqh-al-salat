@@ -1,0 +1,103 @@
+/* ==================================================================
+   Fiqh al-Salat — typography settings
+   ------------------------------------------------------------------
+   The fonts, text sizes, weights, line heights and letter spacing
+   of this page are set here. Change a value, reload, done: style.css
+   only refers to these names.
+
+   · The first block is the English page.
+   · The second block lists only what changes on the Arabic page.
+   · The fonts are downloaded by the @import below. If you switch to
+     a new family, add it to that address too
+     (https://fonts.google.com → pick the family → "Get embed code").
+
+   The shared header and footer keep the Sakina scale from sakina.css,
+   so they match the other Islamic Projects.
+   ================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap");
+
+:root {
+  /* ---------- 1. Font families ---------- */
+  --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-ui:      "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-ar-ui:   "IBM Plex Sans Arabic", "Segoe UI", Tahoma, "Geeza Pro", sans-serif;
+  --font-ar-text: "Noto Naskh Arabic", "IBM Plex Sans Arabic", "Traditional Arabic", serif;
+  --font-naskh:   "Amiri", "Noto Naskh Arabic", "Traditional Arabic", serif;
+
+  /* Which family does which job */
+  --family-hero:   var(--font-display);  /* the big "Fiqh al-Salat" */
+  --family-title:  var(--font-display);  /* section, card and step titles */
+  --family-text:   var(--font-ui);       /* paragraphs, notes, captions */
+  --family-ui:     var(--font-ui);       /* buttons, labels, chart text */
+  --family-script: var(--font-naskh);    /* Qurʾān and duʿāʾ (always Arabic) */
+
+  /* ---------- 2. Sizes, largest first ---------- */
+  --type-hero:       clamp(52px, 8vw, 96px);    /* page title */
+  --type-title:      clamp(36px, 4.6vw, 54px);  /* section titles */
+  --type-quran:      clamp(26px, 3.6vw, 36px);  /* the āyah under the title */
+  --type-lede:       clamp(22px, 2.6vw, 30px);  /* the line under the page title */
+  --type-figure:     42px;                      /* the clock in the shadow figure */
+  --type-card-title: 28px;                      /* card titles (the five prayers, lists) */
+  --type-subtitle:   22px;                      /* step titles, footer duʿāʾ */
+  --type-dua:        19px;                      /* words said in each position */
+  --type-base:       16px;                      /* everything not listed here */
+  --type-row:        16px;                      /* timeline rows, madhhab buttons, ruling headers */
+  --type-body:       15px;                      /* rulings, lists, figure text */
+  --type-body-sm:    14.5px;                    /* card text, tables, "right now" cards */
+  --type-label:      14px;                      /* switches, tooltips, step text */
+  --type-caption:    13.5px;                    /* notes under labels, chart tooltips */
+  --type-small:      13px;                      /* legend, fine print, figure labels */
+  --type-caps:       12.5px;                    /* small UPPERCASE headings */
+  --type-tiny:       12px;                      /* chart marks, axis, sub-labels */
+
+  /* ---------- 3. Weights ---------- */
+  --weight-title:  400;  /* the display serif looks best light */
+  --weight-label:  600;
+  --weight-strong: 700;
+
+  /* ---------- 4. Line heights ---------- */
+  --lh-base:  1.6;
+  --lh-title: 1.08;   /* section titles */
+  --lh-card:  1.15;   /* card and step titles */
+  --lh-text:  1.6;    /* paragraphs */
+  --lh-quran: 1.8;    /* Qurʾān and duʿāʾ */
+
+  /* ---------- 5. Letter spacing ---------- */
+  --track-title: -0.01em;
+  --track-caps:  .12em;  /* for the UPPERCASE headings */
+}
+
+/* ---------- The Arabic page: only what differs ---------- */
+[data-lang="ar"] {
+  --family-hero:  var(--font-ar-ui);
+  --family-title: var(--font-ar-text);
+  --family-text:  var(--font-ar-text);
+  --family-ui:    var(--font-ar-ui);
+  --weight-title: 700;
+
+  --type-lede:       clamp(19px, 2.2vw, 24px);
+  --type-card-title: 24px;
+  --type-base:       17px;
+  --type-label:      15px;
+  --type-caption:    14.5px;
+  --type-small:      14px;
+  --type-caps:       14.5px;
+  --type-tiny:       13px;
+
+  --lh-base:  1.75;
+  --lh-title: 1.4;
+  --lh-card:  1.4;
+  --lh-text:  1.95;   /* Naskh needs room for its marks */
+
+  --track-title: 0;
+  --track-caps:  0;   /* Arabic is never letter-spaced */
+}
+
+/* Phones */
+@media (max-width: 760px) {
+  :root { --type-figure: 34px; }
+}
+
+/* The page's base text (sakina.css sets it for every project; this page takes it from here) */
+:root body { font-size: var(--type-base); line-height: var(--lh-base); }
